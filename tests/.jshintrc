@@ -1,5 +1,14 @@
 {
   "predef": [
+    "mocha",
+    "chai",
+    "expect",
+    "describe",
+    "it",
+    "before",
+    "beforeEach",
+    "after",
+    "afterEach",
     "document",
     "window",
     "location",

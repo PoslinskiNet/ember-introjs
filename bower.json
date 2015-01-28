@@ -7,11 +7,17 @@
     "ember-data": "1.0.0-beta.12",
     "ember-resolver": "~0.1.11",
     "loader.js": "ember-cli/loader.js#1.0.1",
-    "ember-cli-shims": "ember-cli/ember-cli-shims#0.0.3",
-    "ember-cli-test-loader": "rwjblue/ember-cli-test-loader#0.0.4",
+    "ember-cli-shims": "stefanpenner/ember-cli-shims#0.0.3",
+    "ember-cli-test-loader": "ember-cli/ember-cli-test-loader#0.1.0",
     "ember-load-initializers": "ember-cli/ember-load-initializers#0.0.2",
-    "ember-qunit": "0.1.8",
-    "ember-qunit-notifications": "0.0.5",
-    "qunit": "~1.17.1"
+    "ember-mocha": "~0.3.0",
+    "sinon": "http://sinonjs.org/releases/sinon-1.12.2.js"
+  },
+  "resolutions": {
+    "ember-cli-test-loader": "0.4.0"
+  },
+  "devDependencies": {
+    "intro.js": "~1.0.0",
+    "sinon-chai": "~2.6.0"
   }
 }
