@@ -1,5 +1,9 @@
 {
   "predef": [
+    "introJSNext",
+    "introJSPrevious",
+    "introJSEnsureClosed",
+    "introJSCurrentStep",
     "mocha",
     "chai",
     "expect",

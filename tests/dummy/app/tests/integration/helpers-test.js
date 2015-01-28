@@ -1,5 +1,6 @@
 import startApp from 'dummy/tests/helpers/start-app';
 import 'ember-introjs/helpers';
+import Ember from 'ember';
 
 var App;
 describe('test helpers', function(){
