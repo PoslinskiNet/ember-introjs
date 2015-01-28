@@ -109,6 +109,7 @@ To use them, first import them in your `tests/test-helper.js` file:
 // tests/test-helpers.js
 
 import 'ember-introjs/helpers';
+```
 
 ## Running Tests
 
