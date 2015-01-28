@@ -4,6 +4,7 @@
     "introJSPrevious",
     "introJSEnsureClosed",
     "introJSCurrentStep",
+    "sinon",
     "mocha",
     "chai",
     "expect",

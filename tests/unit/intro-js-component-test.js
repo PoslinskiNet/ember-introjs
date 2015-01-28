@@ -31,7 +31,7 @@ describeComponent('intro-js', 'IntroJSComponent', function(){
         } else {
           Ember.run.later(fn, 100);
         }
-      }
+      };
       Ember.run.next(fn);
     });
   });

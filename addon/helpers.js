@@ -1,4 +1,4 @@
-import IntroJSComponent from 'ember-introjs/components/intro-js'
+import IntroJSComponent from 'ember-introjs/components/intro-js';
 import Ember from 'ember';
 
 if (typeof Ember.Test !== 'undefined') {
