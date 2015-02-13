@@ -14,7 +14,7 @@ module.exports = {
     this._super.included(app);
     app.import({
       development: app.bowerDirectory + '/intro.js/intro.js',
-      production: app.bowerDirectory + '/intro.js/intro.min.js'
+      production: app.bowerDirectory + '/intro.js/minified/intro.min.js'
     });
     app.import(app.bowerDirectory + '/intro.js/introjs.css');
   }
