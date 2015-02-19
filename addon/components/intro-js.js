@@ -25,9 +25,9 @@ var INTRO_JS_OPTIONS = [
 
 var IntroJSComponent = Ember.Component.extend({
 
-  setupIntroJS: Ember.on('didInsertElement', function(){
+  setupIntroJS: Ember.observer('start-if', function(){
     Ember.run.scheduleOnce('afterRender', this, this.startIntroJS);
-  }),
+  }).on('didInsertElement'),
 
   /**
    * Options passed to IntroJS. You can specify the options when using the
@@ -106,17 +106,24 @@ var IntroJSComponent = Ember.Component.extend({
   ),
 
   startIntroJS: function(){
-    if (this.get('start-if')){
+    var intro;
+    var options = this.get('introJSOptions');
+
+    if (!this.get('introJS')) {
       this._setIntroJS(introJS());
-      var intro = this.get('introJS');
-      var options = this.get('introJSOptions');
+    }
 
+    intro = this.get('introJS');
+
+    if (this.get('start-if')){
       intro.setOptions(options);
-
       this.registerCallbacksWithIntroJS();
       this._setCurrentStep(0);
 
       intro.start();
+    } else {
+      intro.exit();
+      this._setIntroJS(null);
     }
   },
 
@@ -157,7 +164,10 @@ var IntroJSComponent = Ember.Component.extend({
   },
 
   exitIntroJS: Ember.on('willDestroyElement', function(){
-    this.get('introJS').exit();
+    var intro = this.get('introJS');
+    if (intro) {
+      intro.exit();
+    }
   }),
 
   _setCurrentStep: function(step){
