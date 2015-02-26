@@ -56,6 +56,9 @@ if (typeof Ember.Test !== 'undefined') {
     });
 
     Ember.Test.registerAsyncHelper('introJSEnsureClosed', function(){
+      if (!introJS) {
+        return wait();
+      }
       introJS.exit();
       return wait().then(checkExitCompleted);
     });
