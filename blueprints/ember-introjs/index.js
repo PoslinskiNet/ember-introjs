@@ -2,6 +2,6 @@ module.exports = {
   name: 'ember-introjs',
 
   afterInstall: function(options) {
-    return this.addBowerPackageToProject('introjs', '1.0.0');
+    return this.addBowerPackageToProject('intro.js', '1.0.0');
   }
 };
