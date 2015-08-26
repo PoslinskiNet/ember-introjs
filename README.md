@@ -5,7 +5,8 @@ users through your app.
 
 ## Installation
 
-`ember install npm:ember-introjs`
+`ember install ember-introjs`
+
 `bower install`
 
 ## Usage
