@@ -199,3 +199,10 @@ See the LICENSE file included in this repository.
 <!-- Links -->
 [intro-js]: https://github.com/usablica/intro.js/
 [hooks]: https://github.com/usablica/intro.js#introjsstart
+
+
+## Code of Conduct
+Please note that this project is released with a Contributor Code of
+Conduct. By participating in this project you agree to abide by its
+terms, which can be found in the `CODE_OF_CONDUCT.md` file in this
+repository.
