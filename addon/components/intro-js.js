@@ -87,7 +87,7 @@ var IntroJSComponent = Ember.Component.extend({
       var camelize = Ember.String.camelize;
       var underscore = Ember.String.underscore;
 
-      var options, normalizedName, value, options = {};
+      var option, normalizedName, value, options = {};
 
       for(var i = 0; i < INTRO_JS_OPTIONS.length; i++){
         option = INTRO_JS_OPTIONS[i];
