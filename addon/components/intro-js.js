@@ -87,17 +87,17 @@ var IntroJSComponent = Ember.Component.extend({
       var camelize = Ember.String.camelize;
       var underscore = Ember.String.underscore;
 
-      var options = {};
+      var options, normalizedName, value, options = {};
 
-      Ember.EnumerableUtils.forEach(INTRO_JS_OPTIONS, function(option){
-        var normalizedName = camelize(underscore(option));
-
-        var value = this.get(option);
+      for(var i = 0; i < INTRO_JS_OPTIONS.length; i++){
+        option = INTRO_JS_OPTIONS[i];
+        normalizedName = camelize(underscore(option));
+        value = this.get(option);
 
         if (value !== null && value !== undefined) {
           options[normalizedName] = value;
         }
-      }, this);
+      }
 
       options.steps = this.get('steps');
 
