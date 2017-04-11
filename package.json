@@ -1,7 +1,7 @@
 {
   "name": "ember-introjs",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "version": "2.0.0",
+  "description": "Intro.js wrapper component",
   "keywords": [
     "ember-addon"
   ],
@@ -11,7 +11,7 @@
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
+  "repository": "https://github.com/thefrontside/ember-introjs/",
   "scripts": {
     "build": "ember build",
     "start": "ember server",
@@ -21,7 +21,7 @@
     "broccoli-funnel": "^1.1.0",
     "broccoli-merge-trees": "^2.0.0",
     "ember-cli-babel": "^5.1.7",
-    "intro.js": "^2.5.0"
+    "intro.js": "~2.5.0"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
