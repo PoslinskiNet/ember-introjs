@@ -1,9 +1,13 @@
 {
   "name": "ember-introjs",
   "version": "2.0.0",
-  "description": "Intro.js wrapper component",
+  "description": "An Ember Component for intro.js",
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "intro.js",
+    "ember-intro",
+    "ember",
+    "intro"
   ],
   "license": "MIT",
   "author": "",
