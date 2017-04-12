@@ -2,7 +2,10 @@
   function vendorModule() {
     'use strict';
 
-    return { 'default': self['introJs'] };
+    var intro = self.introJs;
+    delete self.introJs;
+
+    return { 'default': intro };
   }
 
   define('intro-js', [], vendorModule);

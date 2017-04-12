@@ -4,6 +4,8 @@ import { describe, it, beforeEach, afterEach } from 'mocha';
 import { setupComponentTest } from 'ember-mocha';
 import sinon from 'sinon';
 
+const { $ } = Ember;
+
 describe('Integration | Component | intro js', function() {
   setupComponentTest('intro-js', {
     integration: false
@@ -20,7 +22,7 @@ describe('Integration | Component | intro js', function() {
       </div>
     </div>
     `;
-    Ember.$('body').append(html);
+    $('body').append(html);
   });
 
   beforeEach(function(){
@@ -35,7 +37,7 @@ describe('Integration | Component | intro js', function() {
   beforeEach(function(){
     return new Ember.RSVP.Promise((resolve) =>{
       var fn = () => {
-        if (Ember.$('.introjs-overlay').length === 0) {
+        if ($('.introjs-overlay').length === 0) {
           resolve();
         } else {
           Ember.run.later(fn, 100);
@@ -46,7 +48,7 @@ describe('Integration | Component | intro js', function() {
   });
 
   afterEach(function(){
-    Ember.$('#introjs-fixture').remove();
+    $('#introjs-fixture').remove();
   });
 
   describe('start-if', function(){
@@ -75,7 +77,7 @@ describe('Integration | Component | intro js', function() {
       });
 
       it('does not render the introjs component', function(){
-        expect(Ember.$('.introjs-overlay').length).to.equal(0);
+        expect($('.introjs-overlay').length).to.equal(0);
       });
 
       describe('when start-if changes to truthy', function(){
@@ -84,7 +86,7 @@ describe('Integration | Component | intro js', function() {
         });
 
         it('renders introJS', function(){
-          expect(Ember.$('.introjs-overlay').length).to.equal(1);
+          expect($('.introjs-overlay').length).to.equal(1);
         });
       });
     });
@@ -99,7 +101,7 @@ describe('Integration | Component | intro js', function() {
       });
 
       it('works', function(){
-        expect(Ember.$('body').text()).to.include("Step 1");
+        expect($('body').text()).to.include("Step 1");
       });
 
       describe('when start-if changes to falsy', function(){
@@ -115,14 +117,14 @@ describe('Integration | Component | intro js', function() {
         });
 
         it('hides introJS', function(){
-          expect(Ember.$('.introjs-overlay').length).to.equal(0);
+          expect($('.introjs-overlay').length).to.equal(0);
         });
       });
 
       describe('when exiting', function(){
         beforeEach(function(){
           this.sandbox.stub(this.component, 'sendAction');
-          Ember.$('.introjs-skipbutton').click();
+          $('.introjs-skipbutton').click();
         });
 
         it('fires the on-exit action', function(){
@@ -136,7 +138,7 @@ describe('Integration | Component | intro js', function() {
       describe('when going to the next step', function(){
         beforeEach(function(){
           this.sandbox.stub(this.component, 'sendAction');
-          Ember.$('.introjs-nextbutton').click();
+          $('.introjs-nextbutton').click();
         });
 
         it('fires the on-before-change action', function(){
@@ -145,7 +147,7 @@ describe('Integration | Component | intro js', function() {
             steps[0],
             steps[1],
             this.component,
-            Ember.$('#step2')[0]
+            $('#step2')[0]
           );
         });
 
@@ -154,7 +156,7 @@ describe('Integration | Component | intro js', function() {
             'on-change',
             steps[1],
             this.component,
-            Ember.$('#step2')[0]
+            $('#step2')[0]
           );
         });
 
@@ -163,13 +165,13 @@ describe('Integration | Component | intro js', function() {
             'on-after-change',
             steps[1],
             this.component,
-            Ember.$('#step2')[0]
+            $('#step2')[0]
           );
         });
 
         describe('when completing', function(){
           beforeEach(function(){
-            Ember.$('.introjs-skipbutton').click();
+            $('.introjs-skipbutton').click();
           });
 
           it('fires the on-complete action', function(){

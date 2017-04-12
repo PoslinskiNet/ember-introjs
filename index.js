@@ -14,6 +14,8 @@ module.exports = {
     var shim = isFastBoot() ? 'intro-js-fastboot.js' : 'intro-js.js';
 
     app.import('vendor/ember-introjs/intro.js');
+    app.import('vendor/ember-introjs/introjs.css');
+
     app.import('vendor/ember-introjs/shims/' + shim);
   },
 
@@ -26,7 +28,7 @@ module.exports = {
 
     trees.push(new Funnel(this.introJsPath(), {
       destDir: 'ember-introjs',
-      files: ['intro.js']
+      files: ['intro.js', 'introjs.css']
     }));
 
     return mergeTrees(trees);
