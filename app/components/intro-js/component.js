@@ -1,3 +1,1 @@
-import IntroJSComponent from 'ember-introjs/components/intro-js';
-
-export default IntroJSComponent;
+export { default } from 'ember-introjs/components/intro-js';

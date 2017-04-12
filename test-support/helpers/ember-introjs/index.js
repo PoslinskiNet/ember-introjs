@@ -1,1 +1,1 @@
-export {default } from 'ember-introjs/test-helpers';
+export { default } from 'ember-introjs/test-helpers';

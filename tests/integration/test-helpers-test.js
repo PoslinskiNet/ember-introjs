@@ -5,11 +5,9 @@ import { describe, it, beforeEach, afterEach } from 'mocha';
 
 const { $ } = Ember;
 
-import { introJSEnsureClosed, introJSNext, introJSExit, introJSPrevious, introJSCurrentStep } from 'dummy/tests/helpers/ember-introjs';
+let App;
 
-var App;
 describe('test helpers', function(){
-
   beforeEach(function(){
     App = startApp();
     visit('/');
@@ -17,6 +15,7 @@ describe('test helpers', function(){
 
   afterEach(function(){
     introJSEnsureClosed();
+
     return andThen(() =>{
       Ember.run(App, 'destroy');
       App = null;
@@ -25,6 +24,7 @@ describe('test helpers', function(){
 
   it('can use the next helper', function(){
     introJSNext();
+
     return andThen(() => {
       expect(introJSCurrentStep().intro).to.equal('Step 2!');
     });
@@ -32,6 +32,7 @@ describe('test helpers', function(){
 
   it('can use the exit helper', function(){
     introJSExit();
+
     return andThen(() => {
       expect($('.introjs-overlay').length).to.equal(0);
     });
@@ -40,6 +41,7 @@ describe('test helpers', function(){
   it('can use the previous helper', function(){
     introJSNext();
     introJSPrevious();
+
     return andThen(() =>{
       expect(introJSCurrentStep().intro).to.equal('Step 1!');
     });
