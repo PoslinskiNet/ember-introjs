@@ -24,10 +24,6 @@ var INTRO_JS_OPTIONS = [
 
 var IntroJSComponent = Ember.Component.extend({
 
-  // setupIntroJS: Ember.observer('start-if', function(){
-  //   Ember.run.scheduleOnce('afterRender', this, this.startIntroJS);
-  // }).on('didInsertElement'),
-
   setupIntroJS: Ember.on('didInsertElement', Ember.observer('start-if', function() {
     Ember.run.scheduleOnce('afterRender', this, this.startIntroJS);
   })),
