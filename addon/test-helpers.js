@@ -32,16 +32,37 @@ IntroJSComponent.reopen({
   })
 });
 
+/**
+ * Goes to the next step of the intro
+ * @returns {Promise}
+ */
 Test.registerAsyncHelper('introJSNext', function(){
   click($('.introjs-nextbutton'));
   return wait().then(_checkNextCompleted);
 });
 
+/**
+ * Goes to the previous step of the intro
+ * @returns {Promise}
+ */
+Test.registerAsyncHelper('introJSPrevious', function(){
+  click($('.introjs-prevbutton'));
+  return wait().then(_checkNextCompleted);
+});
+
+/**
+ * Exits the intro
+ * @returns {Promise}
+ */
 Test.registerAsyncHelper('introJSExit', function(){
   click($('.introjs-skipbutton'));
   return wait().then(_checkExitCompleted);
 });
 
+/**
+ * Force exit of the intro
+ * @returns {Promise}
+ */
 Test.registerAsyncHelper('introJSEnsureClosed', function(){
   if (!introJS) {
     return wait();
@@ -50,11 +71,10 @@ Test.registerAsyncHelper('introJSEnsureClosed', function(){
   return wait().then(_checkExitCompleted);
 });
 
-Test.registerAsyncHelper('introJSPrevious', function(){
-  click($('.introjs-prevbutton'));
-  return wait().then(_checkNextCompleted);
-});
-
+/**
+ * Current step of the intro
+ * @returns {Number}
+ */
 Test.registerHelper('introJSCurrentStep', function() {
   return currentStep;
 });
