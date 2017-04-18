@@ -7,12 +7,10 @@ users through your app.
 
 `ember install ember-introjs`
 
-`bower install`
-
 ## Usage
 
 To declare your steps, you need to declare an array in JavaScript in
-your Controller:
+your controller or parent component:
 
 ```javascript
 // app/controllers/ticket.js
