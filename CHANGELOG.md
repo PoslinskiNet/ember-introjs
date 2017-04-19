@@ -1,8 +1,12 @@
 # Change Log
 
-## [Unreleased](https://github.com/thefrontside/ember-introjs/tree/HEAD)
+## [1.1.0](https://github.com/thefrontside/ember-introjs/tree/HEAD)
 
-[Full Changelog](https://github.com/thefrontside/ember-introjs/compare/1.0.0...HEAD)
+[Full Changelog](https://github.com/thefrontside/ember-introjs/compare/1.0.0...1.1.0)
+
+**Merged pull requests:**
+
+- Ember 2 compatibility [\#12](https://github.com/PoslinskiNet/ember-introjs/pull/12)
 
 **Closed issues:**
 
