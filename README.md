@@ -7,7 +7,7 @@ users through your app.
 
 `ember install ember-introjs`
 
-`bower install`
+`bower install intro.js --save`
 
 ## Usage
 
