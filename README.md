@@ -11,12 +11,10 @@ users through your app.
 
 `ember install ember-introjs`
 
-`bower install`
-
 ## Usage
 
 To declare your steps, you need to declare an array in JavaScript in
-your Controller:
+your controller or parent component:
 
 ```javascript
 // app/controllers/ticket.js
@@ -182,7 +180,7 @@ To use them, first import them in your `tests/test-helper.js` file:
 ```javascript
 // tests/test-helpers.js
 
-import 'ember-introjs/helpers';
+import './helpers/ember-introjs';
 ```
 
 ## Running Tests
@@ -199,6 +197,8 @@ For more information on using ember-cli, visit [http://www.ember-cli.com/](http:
 ## LICENSE
 
 See the LICENSE file included in this repository.
+
+Keep in mind that if you like to use Intro.JS for commercial use, you should buy a commercial license. You can find more information on the link bellow:
 
 <!-- Links -->
 [intro-js]: https://github.com/usablica/intro.js/

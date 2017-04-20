@@ -1,7 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-
   steps: [
     {
       intro: 'Step 1!',
@@ -12,5 +11,4 @@ export default Ember.Controller.extend({
       element: '#step2'
     }
   ]
-
 });

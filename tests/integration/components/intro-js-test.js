@@ -1,12 +1,15 @@
-import {
-  describeComponent,
-  it
-} from 'ember-mocha';
 import Ember from 'ember';
+import { expect } from 'chai';
+import { describe, it, beforeEach, afterEach } from 'mocha';
+import { setupComponentTest } from 'ember-mocha';
+import sinon from 'sinon';
 
-var introJS = window.introJs;
+const { $ } = Ember;
 
-describeComponent('intro-js', 'IntroJSComponent', function(){
+describe('Integration | Component | intro js', function() {
+  setupComponentTest('intro-js', {
+    integration: false
+  });
 
   beforeEach(function(){
     var html = `
@@ -22,9 +25,17 @@ describeComponent('intro-js', 'IntroJSComponent', function(){
     $('body').append(html);
   });
 
+  beforeEach(function(){
+    this.sandbox = sinon.sandbox.create();
+  });
+
+  afterEach(function(){
+    this.sandbox.restore();
+  });
+
   // Wait for the overlay to close if it's open
   beforeEach(function(){
-    return new Ember.RSVP.Promise((resolve, reject) =>{
+    return new Ember.RSVP.Promise((resolve) =>{
       var fn = () => {
         if ($('.introjs-overlay').length === 0) {
           resolve();
@@ -111,7 +122,6 @@ describeComponent('intro-js', 'IntroJSComponent', function(){
       });
 
       describe('when exiting', function(){
-
         beforeEach(function(){
           this.sandbox.stub(this.component, 'sendAction');
           $('.introjs-skipbutton').click();
@@ -160,7 +170,6 @@ describeComponent('intro-js', 'IntroJSComponent', function(){
         });
 
         describe('when completing', function(){
-
           beforeEach(function(){
             $('.introjs-skipbutton').click();
           });
@@ -173,9 +182,6 @@ describeComponent('intro-js', 'IntroJSComponent', function(){
           });
         });
       });
-
     });
-
   });
-
 });
