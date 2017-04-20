@@ -1,6 +1,5 @@
 import Ember from 'ember';
-
-var introJS = window.introJs;
+import introJS from 'intro-js'
 
 var INTRO_JS_OPTIONS = [
   'next-label',
@@ -25,9 +24,9 @@ var INTRO_JS_OPTIONS = [
 
 var IntroJSComponent = Ember.Component.extend({
 
-  setupIntroJS: Ember.observer('start-if', function(){
+  setupIntroJS: Ember.on('didInsertElement', Ember.observer('start-if', function() {
     Ember.run.scheduleOnce('afterRender', this, this.startIntroJS);
-  }).on('didInsertElement'),
+  })),
 
   /**
    * Options passed to IntroJS. You can specify the options when using the
@@ -163,12 +162,14 @@ var IntroJSComponent = Ember.Component.extend({
     this.sendAction('on-exit', this.get('currentStep'), this);
   },
 
-  exitIntroJS: Ember.on('willDestroyElement', function(){
+  willDestroyElement() {
     var intro = this.get('introJS');
     if (intro) {
       intro.exit();
     }
-  }),
+
+    this._super(...arguments);
+  },
 
   _setCurrentStep: function(step){
     var stepObject = Ember.A(this.get('steps')).objectAt(step);
