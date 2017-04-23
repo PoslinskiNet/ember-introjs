@@ -2,7 +2,7 @@
   <img src="https://raw.githubusercontent.com/PoslinskiNet/ember-introjs/master/ember-introjs.png" alt="Ember Custom Actions Logo" width="100%">
 </p>
 
-[![Build Status](https://secure.travis-ci.org/thefrontside/ember-introjs.svg?branch=master)](http://travis-ci.org/thefrontside/ember-introjs)
+[![Build Status](https://api.travis-ci.org/PoslinskiNet/ember-introjs.svg?branch=master)](http://travis-ci.org/PoslinskiNet/ember-introjs)
 
 Ember IntroJS wraps [introjs][intro-js] in an Ember Component to guide
 users through your app.
