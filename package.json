@@ -15,7 +15,7 @@
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "https://github.com/thefrontside/ember-introjs/",
+  "repository": "https://github.com/poslinskinet/ember-introjs/",
   "scripts": {
     "build": "ember build",
     "start": "ember server",
