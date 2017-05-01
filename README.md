@@ -13,8 +13,8 @@ users through your app.
 
 ## Usage
 
-To declare your steps, you need to declare an array in JavaScript in
-your controller or parent component:
+### 1. Declare your steps:
+- You can declare an array in JavaScript in your controller or parent component:
 
 ```javascript
 // app/controllers/ticket.js
@@ -35,7 +35,25 @@ export default Ember.Controller.extend({
   })
 });
 ```
+#### 2. Use `intro-js/step` component as a wrapper
 
+```hbs
+{{#intro-js/step step=1 intro="Step Component"}}
+  <h1>Hello!</h1>
+{{/intro-js/step}}
+```
+You can customize wrapper using:
+- `position="top"`
+- `intro="Welcome!"`
+- `tooltipClass="tooltip-class"`
+- `highlightClass="highlight-class"`
+- `position="top"`
+- `hint="Use it :)"`
+- `hintPosition="bottom-left"`
+
+Options are documented in the code as well as in [IntroJS Docs](http://introjs.com/docs)
+
+### 2. User `intro-js` component
 Then to use the steps, you can use the steps in your handlebars
 template:
 
