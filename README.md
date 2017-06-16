@@ -59,7 +59,7 @@ template:
 
 ```handlebars
 {{! app/templates/ticket }}
-{{intro-js steps=steps start-if=true}}
+{{intro-js start-if=true}}
 ```
 
 ## Action Hooks
