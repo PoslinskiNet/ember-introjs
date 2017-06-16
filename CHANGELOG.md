@@ -1,5 +1,25 @@
 # Change Log
 
+## [2.0.0](https://github.com/PoslinskiNet/ember-introjs/tree/2.0.0) (2017-06-16)
+[Full Changelog](https://github.com/PoslinskiNet/ember-introjs/compare/2.0.0...2.0.0)
+
+**Implemented enhancements:**
+
+- Feature step component [\#19](https://github.com/PoslinskiNet/ember-introjs/pull/19) ([Exelord](https://github.com/Exelord))
+- Housewarming gift [\#15](https://github.com/PoslinskiNet/ember-introjs/pull/15) ([Exelord](https://github.com/Exelord))
+
+**Closed issues:**
+
+- intro-js/step not found [\#20](https://github.com/PoslinskiNet/ember-introjs/issues/20)
+- NPM collaborator names [\#18](https://github.com/PoslinskiNet/ember-introjs/issues/18)
+- New release? [\#13](https://github.com/PoslinskiNet/ember-introjs/issues/13)
+- Bring this addon back to life [\#11](https://github.com/PoslinskiNet/ember-introjs/issues/11)
+- Ember.EnumerableUtils is deprecated [\#8](https://github.com/PoslinskiNet/ember-introjs/issues/8)
+
+**Merged pull requests:**
+
+- Release a Step component [\#21](https://github.com/PoslinskiNet/ember-introjs/pull/21) ([Exelord](https://github.com/Exelord))
+
 ## [2.0.0](https://github.com/PoslinskiNet/ember-introjs/tree/2.0.0) (2017-04-20)
 [Full Changelog](https://github.com/PoslinskiNet/ember-introjs/compare/1.1.0...2.0.0)
 
