@@ -8,7 +8,7 @@ var nextCompleted = false;
 var currentStep;
 var introJS;
 
-IntroJSComponent.reopen({
+export default IntroJSComponent.reopen({
   _setIntroJS: function(_introJS) {
     introJS = _introJS;
     this._super(introJS);
