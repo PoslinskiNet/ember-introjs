@@ -8,7 +8,7 @@ var nextCompleted = false;
 var currentStep;
 var introJS;
 
-export default IntroJSComponent.reopen({
+IntroJSComponent.reopen({
   _setIntroJS: function(_introJS) {
     introJS = _introJS;
     this._super(introJS);
@@ -31,6 +31,8 @@ export default IntroJSComponent.reopen({
     introJS = null;
   })
 });
+
+export default IntroJSComponent;
 
 /**
  * Goes to the next step of the intro
