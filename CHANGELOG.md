@@ -1,5 +1,16 @@
 # Change Log
 
+## [2.1.1](https://github.com/PoslinskiNet/ember-introjs/tree/2.1.1) (2017-07-01)
+[Full Changelog](https://github.com/PoslinskiNet/ember-introjs/compare/2.1.0...2.1.1)
+
+**Implemented enhancements:**
+
+- Package upgrades [\#23](https://github.com/PoslinskiNet/ember-introjs/pull/23) ([PoslinskiNet](https://github.com/PoslinskiNet))
+
+**Closed issues:**
+
+- Fix breaking changes in FastBoot 1.0 [\#22](https://github.com/PoslinskiNet/ember-introjs/issues/22)
+
 ## [2.1.0](https://github.com/PoslinskiNet/ember-introjs/tree/2.1.0) (2017-06-16)
 [Full Changelog](https://github.com/PoslinskiNet/ember-introjs/compare/2.0.0...2.1.0)
 
@@ -33,15 +44,21 @@
 **Closed issues:**
 
 - Installation Error with Ember CLI 1.13.8 [\#7](https://github.com/PoslinskiNet/ember-introjs/issues/7)
+- Add `tmp` dir to the .npmignore. [\#5](https://github.com/PoslinskiNet/ember-introjs/issues/5)
 
 **Merged pull requests:**
 
 - 1.1.0 release [\#17](https://github.com/PoslinskiNet/ember-introjs/pull/17) ([PoslinskiNet](https://github.com/PoslinskiNet))
 - Ember 2 compatibility [\#12](https://github.com/PoslinskiNet/ember-introjs/pull/12) ([cimtico](https://github.com/cimtico))
+- Add changelog [\#10](https://github.com/PoslinskiNet/ember-introjs/pull/10) ([Robdel12](https://github.com/Robdel12))
 - Fix install issue [\#9](https://github.com/PoslinskiNet/ember-introjs/pull/9) ([xymbol](https://github.com/xymbol))
 
 ## [1.0.0](https://github.com/PoslinskiNet/ember-introjs/tree/1.0.0) (2015-08-26)
 [Full Changelog](https://github.com/PoslinskiNet/ember-introjs/compare/0.2.3...1.0.0)
+
+**Closed issues:**
+
+- Is there a way to use this without CLI? [\#4](https://github.com/PoslinskiNet/ember-introjs/issues/4)
 
 **Merged pull requests:**
 
