@@ -3,7 +3,9 @@ import { describe, it } from 'mocha';
 import { setupComponentTest } from 'ember-mocha';
 
 describe('Unit | Component | Step', function() {
-  setupComponentTest('intro-js/step');
+  setupComponentTest('intro-js/step', {
+    unit: true
+  });
 
   describe('step', function() {
     it('does render with 0 as default', function(){

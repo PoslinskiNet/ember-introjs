@@ -1,12 +1,17 @@
-(function() {
-  function vendorModule() {
-    'use strict';
+/* eslint-env node */
+define('intro-js', [], function() {
+  'use strict';
 
-    var intro = self.introJs;
+  var introJs;
+
+  if (typeof FastBoot != 'undefined') {
+    introJs = FastBoot.require('introJs');
+  } else {
+    introJs = self.introJs;
     delete self.introJs;
-
-    return { 'default': intro };
   }
 
-  define('intro-js', [], vendorModule);
-})();
+  return {
+    'default': introJs
+  };
+});

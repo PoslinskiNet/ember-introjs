@@ -32,6 +32,8 @@ IntroJSComponent.reopen({
   })
 });
 
+export default IntroJSComponent;
+
 /**
  * Goes to the next step of the intro
  * @returns {Promise}

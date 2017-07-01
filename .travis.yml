@@ -5,6 +5,11 @@ node_js:
 
 sudo: false
 
+dist: trusty
+
+addons:
+  chrome: stable
+
 cache:
   directories:
     - $HOME/.npm
@@ -26,12 +31,9 @@ matrix:
 
 before_install:
   - npm config set spin false
-  - npm install -g bower phantomjs-prebuilt
-  - bower --version
 
 install:
   - npm install
-  - bower install
 
 script:
   - npm test
