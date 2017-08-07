@@ -11,10 +11,12 @@ module.exports = {
   included: function(app) {
     this._super.included(app);
 
-    app.import('vendor/ember-introjs/intro.js');
+    app.import('vendor/ember-introjs/intro.js', {
+      using: [
+        { transformation: 'amd', as: 'intro-js' }
+      ]
+    });
     app.import('vendor/ember-introjs/introjs.css');
-
-    app.import('vendor/ember-introjs/shims/intro-js.js');
   },
 
   introJsPath() {
