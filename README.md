@@ -11,10 +11,10 @@ users through your app.
 
 `ember install ember-introjs`
 
-## Usage
+## Usage (option A)
 
 ### 1. Declare your steps:
-- You can declare an array in JavaScript in your controller or parent component:
+- You can declare an array in your controller or parent component:
 
 ```javascript
 // app/controllers/ticket.js
@@ -35,7 +35,17 @@ export default Ember.Controller.extend({
   })
 });
 ```
-#### 2. Use `intro-js/step` component as a wrapper
+### 2. Use `intro-js` component
+Then to use the steps, you can use in your handlebars template `intro-js` component:
+
+```handlebars
+{{! app/templates/ticket }}
+{{intro-js start-if=true}}
+```
+
+## Usage (option B)
+
+#### 1. Use `intro-js/step` component as a wrapper
 
 ```hbs
 {{#intro-js/step step=1 intro="Step Component"}}
@@ -52,15 +62,6 @@ You can customize wrapper using:
 - `hintPosition="bottom-left"`
 
 Options are documented in the code as well as in [IntroJS Docs](http://introjs.com/docs)
-
-### 2. User `intro-js` component
-Then to use the steps, you can use the steps in your handlebars
-template:
-
-```handlebars
-{{! app/templates/ticket }}
-{{intro-js start-if=true}}
-```
 
 ## Action Hooks
 
