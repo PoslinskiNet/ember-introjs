@@ -9,6 +9,8 @@ users through your app.
 
 ## Installation
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/PoslinskiNet/ember-introjs.svg)](https://greenkeeper.io/)
+
 `ember install ember-introjs`
 
 ## Usage (option A)
