@@ -3,13 +3,12 @@
 </p>
 
 [![Build Status](https://api.travis-ci.org/PoslinskiNet/ember-introjs.svg?branch=master)](http://travis-ci.org/PoslinskiNet/ember-introjs)
+[![Greenkeeper badge](https://badges.greenkeeper.io/PoslinskiNet/ember-introjs.svg)](https://greenkeeper.io/)
 
 Ember IntroJS wraps [introjs][intro-js] in an Ember Component to guide
 users through your app.
 
 ## Installation
-
-[![Greenkeeper badge](https://badges.greenkeeper.io/PoslinskiNet/ember-introjs.svg)](https://greenkeeper.io/)
 
 `ember install ember-introjs`
 
