@@ -1,10 +1,15 @@
-import Ember from 'ember';
+import { later, next, run } from '@ember/runloop';
+import { Promise as EmberPromise } from 'rsvp';
+import $ from 'jquery';
 import { expect } from 'chai';
-import { describe, it, beforeEach, afterEach } from 'mocha';
+import {
+  describe,
+  it,
+  beforeEach,
+  afterEach
+} from 'mocha';
 import { setupComponentTest } from 'ember-mocha';
 import sinon from 'sinon';
-
-const { $ } = Ember;
 
 describe('Integration | Component | intro js', function() {
   setupComponentTest('intro-js', {
@@ -35,15 +40,15 @@ describe('Integration | Component | intro js', function() {
 
   // Wait for the overlay to close if it's open
   beforeEach(function(){
-    return new Ember.RSVP.Promise((resolve) =>{
+    return new EmberPromise((resolve) =>{
       var fn = () => {
         if ($('.introjs-overlay').length === 0) {
           resolve();
         } else {
-          Ember.run.later(fn, 100);
+          later(fn, 100);
         }
       };
-      Ember.run.next(fn);
+      next(fn);
     });
   });
 
@@ -82,7 +87,7 @@ describe('Integration | Component | intro js', function() {
 
       describe('when start-if changes to truthy', function(){
         beforeEach(function(){
-          Ember.run(this.component, 'set', 'start-if', true);
+          run(this.component, 'set', 'start-if', true);
         });
 
         it('renders introJS', function(){
@@ -108,7 +113,7 @@ describe('Integration | Component | intro js', function() {
 
         beforeEach(function(){
           this.clock = sinon.useFakeTimers();
-          Ember.run(this.component, 'set', 'start-if', false);
+          run(this.component, 'set', 'start-if', false);
           this.clock.tick(501);
         });
 

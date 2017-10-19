@@ -1,8 +1,13 @@
 /* global click wait */
+import { on } from '@ember/object/evented';
+
+import $ from 'jquery';
 import IntroJSComponent from 'ember-introjs/components/intro-js';
 import Ember from 'ember';
 
-const { $, Test } = Ember;
+const {
+  Test
+} = Ember;
 
 var nextCompleted = false;
 var currentStep;
@@ -27,7 +32,7 @@ IntroJSComponent.reopen({
     currentStep = this.get('currentStep');
   },
 
-  stopWatchingTestVars: Ember.on('willDestroyElement', function(){
+  stopWatchingTestVars: on('willDestroyElement', function(){
     introJS = null;
   })
 });

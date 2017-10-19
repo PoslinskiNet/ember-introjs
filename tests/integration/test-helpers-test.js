@@ -1,9 +1,13 @@
-import Ember from 'ember';
+import { run } from '@ember/runloop';
+import $ from 'jquery';
 import startApp from 'dummy/tests/helpers/start-app';
 import { expect } from 'chai';
-import { describe, it, beforeEach, afterEach } from 'mocha';
-
-const { $ } = Ember;
+import {
+  describe,
+  it,
+  beforeEach,
+  afterEach
+} from 'mocha';
 
 let App;
 
@@ -17,7 +21,7 @@ describe('test helpers', function(){
     introJSEnsureClosed();
 
     return andThen(() =>{
-      Ember.run(App, 'destroy');
+      run(App, 'destroy');
       App = null;
     });
   });
