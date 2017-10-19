@@ -1,6 +1,5 @@
-import Ember from 'ember';
-
-const { Component, computed } = Ember;
+import { readOnly } from '@ember/object/computed';
+import Component from '@ember/component';
 
 export default Component.extend({
   // Optionally define the number (priority) of step
@@ -41,14 +40,14 @@ export default Component.extend({
     'data-hintPosition'
   ],
 
-  'data-step': computed.readOnly('step'),
+  'data-step': readOnly('step'),
 
-  'data-hint': computed.readOnly('hint'),
-  'data-intro': computed.readOnly('intro'),
+  'data-hint': readOnly('hint'),
+  'data-intro': readOnly('intro'),
 
-  'data-tooltipClass': computed.readOnly('tooltipClass'),
-  'data-highlightClass': computed.readOnly('highlightClass'),
+  'data-tooltipClass': readOnly('tooltipClass'),
+  'data-highlightClass': readOnly('highlightClass'),
 
-  'data-position': computed.readOnly('position'),
-  'data-hintPosition': computed.readOnly('hintPosition'),
+  'data-position': readOnly('position'),
+  'data-hintPosition': readOnly('hintPosition'),
 });
