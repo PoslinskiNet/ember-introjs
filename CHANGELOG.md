@@ -1,5 +1,21 @@
 # Change Log
 
+## [v2.2.0](https://github.com/PoslinskiNet/ember-introjs/tree/v2.2.0) (2017-10-19)
+[Full Changelog](https://github.com/PoslinskiNet/ember-introjs/compare/2.1.1...v2.2.0)
+
+**Implemented enhancements:**
+
+- Feature 2.16 [\#30](https://github.com/PoslinskiNet/ember-introjs/pull/30) ([PoslinskiNet](https://github.com/PoslinskiNet))
+
+**Closed issues:**
+
+- 'steps' property may be invalid [\#28](https://github.com/PoslinskiNet/ember-introjs/issues/28)
+
+**Merged pull requests:**
+
+- Update dependencies to enable Greenkeeper 🌴 [\#29](https://github.com/PoslinskiNet/ember-introjs/pull/29) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Use AMD transformation when importing, remove shim [\#25](https://github.com/PoslinskiNet/ember-introjs/pull/25) ([fusion2004](https://github.com/fusion2004))
+
 ## [2.1.1](https://github.com/PoslinskiNet/ember-introjs/tree/2.1.1) (2017-07-01)
 [Full Changelog](https://github.com/PoslinskiNet/ember-introjs/compare/2.1.0...2.1.1)
 
