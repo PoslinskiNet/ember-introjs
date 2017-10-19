@@ -4,6 +4,7 @@
 
 [![Build Status](https://api.travis-ci.org/PoslinskiNet/ember-introjs.svg?branch=master)](http://travis-ci.org/PoslinskiNet/ember-introjs)
 [![Greenkeeper badge](https://badges.greenkeeper.io/PoslinskiNet/ember-introjs.svg)](https://greenkeeper.io/)
+[![Ember Observer Score](https://emberobserver.com/badges/ember-pell.svg)](https://emberobserver.com/addons/ember-pell)
 
 Ember IntroJS wraps [introjs][intro-js] in an Ember Component to guide
 users through your app.
