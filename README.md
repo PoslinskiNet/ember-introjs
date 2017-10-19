@@ -3,7 +3,6 @@
 </p>
 
 [![Build Status](https://api.travis-ci.org/PoslinskiNet/ember-introjs.svg?branch=master)](http://travis-ci.org/PoslinskiNet/ember-introjs)
-[![Greenkeeper badge](https://badges.greenkeeper.io/PoslinskiNet/ember-introjs.svg)](https://greenkeeper.io/)
 
 Ember IntroJS wraps [introjs][intro-js] in an Ember Component to guide
 users through your app.
@@ -12,10 +11,31 @@ users through your app.
 
 `ember install ember-introjs`
 
-## Usage (option A)
+## Usage
 
-### 1. Declare your steps:
-- You can declare an array in your controller or parent component:
+### 1st option (recommended)
+#### Use `intro-js/step` component as a wrapper
+
+```hbs
+{{#intro-js/step step=1 intro="Step Component"}}
+  <h1>Hello!</h1>
+{{/intro-js/step}}
+```
+
+You can customize wrapper using:
+- `position="top"`
+- `intro="Welcome!"`
+- `tooltipClass="tooltip-class"`
+- `highlightClass="highlight-class"`
+- `position="top"`
+- `hint="Use it :)"`
+- `hintPosition="bottom-left"`
+
+Options are documented in the code as well as in [IntroJS Docs](http://introjs.com/docs)
+
+### 2nd option
+#### 1. Declare your steps:
+You can declare an array in JavaScript in your controller or parent component:
 
 ```javascript
 // app/controllers/ticket.js
@@ -36,39 +56,18 @@ export default Ember.Controller.extend({
   })
 });
 ```
+
 ### 2. Use `intro-js` component
-Then to use the steps, you can use in your handlebars template `intro-js` component:
+Then to use the steps, you can use the steps in your handlebars template:
 
 ```handlebars
 {{! app/templates/ticket }}
 {{intro-js start-if=true}}
 ```
 
-## Usage (option B)
-
-#### 1. Use `intro-js/step` component as a wrapper
-
-```hbs
-{{#intro-js/step step=1 intro="Step Component"}}
-  <h1>Hello!</h1>
-{{/intro-js/step}}
-```
-You can customize wrapper using:
-- `position="top"`
-- `intro="Welcome!"`
-- `tooltipClass="tooltip-class"`
-- `highlightClass="highlight-class"`
-- `position="top"`
-- `hint="Use it :)"`
-- `hintPosition="bottom-left"`
-
-Options are documented in the code as well as in [IntroJS Docs](http://introjs.com/docs)
-
 ## Action Hooks
 
-IntroJS supports a series of hooks for getting notified for when users
-switch between steps or exit. You can subscribe to these actions using
-the typical `actions` hash in your Route or Controller:
+IntroJS supports a series of hooks for getting notified for when users switch between steps or exit. You can subscribe to these actions using the typical `actions` hash in your Route or Controller:
 
 ```javascript
 // app/routes/ticket.js
@@ -199,7 +198,6 @@ To use them, first import them in your `tests/test-helper.js` file:
 
 ```javascript
 // tests/test-helpers.js
-
 import './helpers/ember-introjs';
 ```
 
