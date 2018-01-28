@@ -24,13 +24,11 @@ module.exports = {
   },
 
   treeForVendor(tree) {
-    let trees = [tree];
-
-    trees.push(new Funnel(this.introJsPath(), {
+    const introJsTree = new Funnel(this.introJsPath(), {
       destDir: 'ember-introjs',
       files: ['intro.js', 'introjs.css']
-    }));
+    });
 
-    return mergeTrees(trees);
+    return tree ? new mergeTrees([tree, introJsTree]) : introJsTree;
   },
 };
