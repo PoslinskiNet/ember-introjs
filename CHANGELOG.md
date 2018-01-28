@@ -1,5 +1,31 @@
 # Change Log
 
+## [v2.2.1](https://github.com/PoslinskiNet/ember-introjs/tree/v2.2.1) (2018-01-28)
+[Full Changelog](https://github.com/PoslinskiNet/ember-introjs/compare/v2.2.0...v2.2.1)
+
+**Merged pull requests:**
+
+- Fix travis build [\#51](https://github.com/PoslinskiNet/ember-introjs/pull/51) ([PoslinskiNet](https://github.com/PoslinskiNet))
+- Only merge tree if present in treeForVendor [\#50](https://github.com/PoslinskiNet/ember-introjs/pull/50) ([oo6](https://github.com/oo6))
+- Update ember-cli-fastboot to the latest version 🚀 [\#49](https://github.com/PoslinskiNet/ember-introjs/pull/49) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-source to the latest version 🚀 [\#48](https://github.com/PoslinskiNet/ember-introjs/pull/48) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-cli to the latest version 🚀 [\#46](https://github.com/PoslinskiNet/ember-introjs/pull/46) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-cli-mocha to the latest version 🚀 [\#45](https://github.com/PoslinskiNet/ember-introjs/pull/45) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-cli-babel to the latest version 🚀 [\#44](https://github.com/PoslinskiNet/ember-introjs/pull/44) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-cli-fastboot to the latest version 🚀 [\#43](https://github.com/PoslinskiNet/ember-introjs/pull/43) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-cli to the latest version 🚀 [\#42](https://github.com/PoslinskiNet/ember-introjs/pull/42) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-cli-mocha to the latest version 🚀 [\#41](https://github.com/PoslinskiNet/ember-introjs/pull/41) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-cli-eslint to the latest version 🚀 [\#40](https://github.com/PoslinskiNet/ember-introjs/pull/40) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-cli to the latest version 🚀 [\#39](https://github.com/PoslinskiNet/ember-introjs/pull/39) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-source to the latest version 🚀 [\#38](https://github.com/PoslinskiNet/ember-introjs/pull/38) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-cli-babel to the latest version 🚀 [\#37](https://github.com/PoslinskiNet/ember-introjs/pull/37) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-cli-shims to the latest version 🚀 [\#36](https://github.com/PoslinskiNet/ember-introjs/pull/36) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-cli-babel to the latest version 🚀 [\#35](https://github.com/PoslinskiNet/ember-introjs/pull/35) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-cli-babel to the latest version 🚀 [\#34](https://github.com/PoslinskiNet/ember-introjs/pull/34) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-cli-dependency-checker to the latest version 🚀 [\#33](https://github.com/PoslinskiNet/ember-introjs/pull/33) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-cli-babel to the latest version 🚀 [\#32](https://github.com/PoslinskiNet/ember-introjs/pull/32) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-cli-eslint to the latest version 🚀 [\#31](https://github.com/PoslinskiNet/ember-introjs/pull/31) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
 ## [v2.2.0](https://github.com/PoslinskiNet/ember-introjs/tree/v2.2.0) (2017-10-19)
 [Full Changelog](https://github.com/PoslinskiNet/ember-introjs/compare/2.1.1...v2.2.0)
 
