@@ -1,5 +1,16 @@
 # Change Log
 
+## [v2.3.0](https://github.com/PoslinskiNet/ember-introjs/tree/v2.3.0) (2018-02-03)
+[Full Changelog](https://github.com/PoslinskiNet/ember-introjs/compare/v2.2.1...v2.3.0)
+
+**Implemented enhancements:**
+
+- Ember 2.18.1 [\#54](https://github.com/PoslinskiNet/ember-introjs/pull/54) ([PoslinskiNet](https://github.com/PoslinskiNet))
+
+**Merged pull requests:**
+
+- Update ember-cli-fastboot to the latest version 🚀 [\#52](https://github.com/PoslinskiNet/ember-introjs/pull/52) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
 ## [v2.2.1](https://github.com/PoslinskiNet/ember-introjs/tree/v2.2.1) (2018-01-28)
 [Full Changelog](https://github.com/PoslinskiNet/ember-introjs/compare/v2.2.0...v2.2.1)
 
