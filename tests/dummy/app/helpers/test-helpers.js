@@ -14,20 +14,20 @@ var currentStep;
 var introJS;
 
 IntroJSComponent.reopen({
-  _setIntroJS: function(_introJS) {
+  _setIntroJS(_introJS) {
     introJS = _introJS;
     this._super(introJS);
   },
-  _onExit: function(){
+  _onExit(){
     this._super();
   },
 
-  _onAfterChange: function(targetElement){
+  _onAfterChange(targetElement){
     nextCompleted = true;
     this._super(targetElement);
   },
 
-  _setCurrentStep: function(step){
+  _setCurrentStep(step){
     this._super(step);
     currentStep = this.get('currentStep');
   },

@@ -6,7 +6,7 @@ import { on } from '@ember/object/evented';
 import Component from '@ember/component';
 import introJS from 'intro-js'
 
-var INTRO_JS_OPTIONS = [
+let INTRO_JS_OPTIONS = [
   'next-label',
   'prev-label',
   'skip-label',
@@ -27,7 +27,7 @@ var INTRO_JS_OPTIONS = [
   'disable-interaction'
 ];
 
-var IntroJSComponent = Component.extend({
+export default Component.extend({
 
   setupIntroJS: on('didInsertElement', observer('start-if', function() {
     scheduleOnce('afterRender', this, this.startIntroJS);
@@ -77,7 +77,6 @@ var IntroJSComponent = Component.extend({
     'exit-on-esc',
     'exit-on-overlay-click',
     'show-step-numbers',
-    'show-step-numbers',
     'keyboard-navigation',
     'show-buttons',
     'show-bullets',
@@ -88,9 +87,9 @@ var IntroJSComponent = Component.extend({
     'steps',
 
     function(){
-      var option, normalizedName, value, options = {};
+      let option, normalizedName, value, options = {};
 
-      for(var i = 0; i < INTRO_JS_OPTIONS.length; i++){
+      for(let i = 0; i < INTRO_JS_OPTIONS.length; i++){
         option = INTRO_JS_OPTIONS[i];
         normalizedName = camelize(underscore(option));
         value = this.get(option);
@@ -106,15 +105,12 @@ var IntroJSComponent = Component.extend({
     }
   ),
 
-  startIntroJS: function(){
-    var intro;
-    var options = this.get('introJSOptions');
-
+  startIntroJS(){
     if (!this.get('introJS')) {
       this._setIntroJS(introJS());
     }
-
-    intro = this.get('introJS');
+    let intro = this.get('introJS');
+    let options = this.get('introJSOptions');
 
     if (this.get('start-if')){
       intro.setOptions(options);
@@ -165,7 +161,7 @@ var IntroJSComponent = Component.extend({
   },
 
   willDestroyElement() {
-    var intro = this.get('introJS');
+    let intro = this.get('introJS');
     if (intro) {
       intro.exit();
     }
@@ -173,10 +169,8 @@ var IntroJSComponent = Component.extend({
     this._super(...arguments);
   },
 
-  _setCurrentStep: function(step){
-    var stepObject = A(this.get('steps')).objectAt(step);
+  _setCurrentStep(step){
+    let stepObject = A(this.get('steps')).objectAt(step);
     this.set('currentStep', stepObject);
   }
 });
-
-export default IntroJSComponent;
