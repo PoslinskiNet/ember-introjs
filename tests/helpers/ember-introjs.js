@@ -9,9 +9,9 @@ const {
   Test
 } = Ember;
 
-var nextCompleted = false;
-var currentStep;
-var introJS;
+let nextCompleted = false;
+let currentStep;
+let introJS;
 
 IntroJSComponent.reopen({
   _setIntroJS(_introJS) {
