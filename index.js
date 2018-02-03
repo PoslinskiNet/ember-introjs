@@ -11,12 +11,12 @@ module.exports = {
   included(app) {
     this._super.included(app);
 
-    app.import('vendor/ember-introjs/intro.js', {
+    app.import('vendor/ember-introjs/intro.min.js', {
       using: [
         { transformation: 'amd', as: 'intro-js' }
       ]
     });
-    app.import('vendor/ember-introjs/introjs.css');
+    app.import('vendor/ember-introjs/introjs.min.css');
   },
 
   introJsPath() {
@@ -24,9 +24,11 @@ module.exports = {
   },
 
   treeForVendor(tree) {
+    console.log(this.introJsPath());
     const introJsTree = new Funnel(this.introJsPath(), {
+      srcDir: 'minified',
       destDir: 'ember-introjs',
-      files: ['intro.js', 'introjs.css']
+      files: ['intro.min.js', 'introjs.min.css']
     });
 
     return tree ? new mergeTrees([tree, introJsTree]) : introJsTree;
