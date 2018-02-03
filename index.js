@@ -1,14 +1,14 @@
-/* eslint-env node */
 'use strict';
 
 const path = require('path');
+const resolve = require('resolve');
 const Funnel = require('broccoli-funnel');
 const mergeTrees = require('broccoli-merge-trees');
 
 module.exports = {
   name: 'ember-introjs',
 
-  included: function(app) {
+  included(app) {
     this._super.included(app);
 
     app.import('vendor/ember-introjs/intro.js', {
@@ -20,7 +20,7 @@ module.exports = {
   },
 
   introJsPath() {
-    return path.join(this.app.project.nodeModulesPath, 'intro.js');
+    return path.dirname(resolve.sync('intro.js', { basedir: __dirname }))
   },
 
   treeForVendor(tree) {

@@ -41,10 +41,11 @@ You can declare an array in JavaScript in your controller or parent component:
 
 ```javascript
 // app/controllers/ticket.js
-import Ember from 'ember';
+import Controller from '@ember/controller';
+import { computed } from '@ember/object';
 
-export default Ember.Controller.extend({
-  steps: Ember.computed(function(){
+export default Controller.extend({
+  steps: computed(function() {
     return [
       {
         element: $('#step1'),
@@ -77,7 +78,7 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   actions: {
-    introBeforeChange: function(previousStep, nextStep, introJSComponent,
+    introBeforeChange(previousStep, nextStep, introJSComponent,
 elementOfNewStep){
       // You could track user interactions here, e.g. analytics.
       this.sendAnalytics(prevStep);
