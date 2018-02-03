@@ -24,7 +24,6 @@ module.exports = {
   },
 
   treeForVendor(tree) {
-    console.log(this.introJsPath());
     const introJsTree = new Funnel(this.introJsPath(), {
       srcDir: 'minified',
       destDir: 'ember-introjs',

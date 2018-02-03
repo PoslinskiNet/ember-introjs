@@ -42,6 +42,7 @@ module.exports = {
       },
       plugins: ['node'],
       rules: Object.assign({}, require('eslint-plugin-node').configs.recommended.rules, {
+        'node/no-extraneous-require': 'off'
       })
     },
 
