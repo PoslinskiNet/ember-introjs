@@ -5,7 +5,7 @@
 [![Build Status](https://api.travis-ci.org/PoslinskiNet/ember-introjs.svg?branch=master)](http://travis-ci.org/PoslinskiNet/ember-introjs)
 [![Greenkeeper badge](https://badges.greenkeeper.io/PoslinskiNet/ember-introjs.svg)](https://greenkeeper.io/)
 [![Ember Observer Score](https://emberobserver.com/badges/ember-pell.svg)](https://emberobserver.com/addons/ember-pell)
-[![NPM package info for ember-introjs](https://img.shields.io/npm/dm/ember-introjs.svg?style=plastic)](http://npmjs.com/package/ember-introjs) &nbsp; [![License info](https://img.shields.io/npm/l/ember-introjs.svg?style=plastic)](http://npmjs.com/package/ember-introjs)
+[![NPM package info for ember-introjs](https://img.shields.io/npm/dm/ember-introjs.svg)](http://npmjs.com/package/ember-introjs) &nbsp; [![License info](https://img.shields.io/npm/l/ember-introjs.svg)](http://npmjs.com/package/ember-introjs)
 
 Ember IntroJS wraps [introjs][intro-js] in an Ember Component to guide
 users through your app.
