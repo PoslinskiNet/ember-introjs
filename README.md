@@ -10,7 +10,8 @@
 Ember IntroJS wraps [introjs][intro-js] in an Ember Component to guide
 users through your app.
 
-## Installation
+Installation
+------------------------------------------------------------------------------
 
 `ember install ember-introjs`
 
@@ -205,14 +206,15 @@ To use them, first import them in your `tests/test-helper.js` file:
 import './helpers/ember-introjs';
 ```
 
-## Running Tests
+### Running tests
 
 * `ember test`
 * `ember test --server`
 
-## Building
+### Running the dummy application
 
-* `ember build`
+* `ember serve`
+* Visit the dummy application at [http://localhost:4200](http://localhost:4200).
 
 For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
 
