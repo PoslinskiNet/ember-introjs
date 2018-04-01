@@ -8,13 +8,12 @@ import {
   beforeEach,
   afterEach
 } from 'mocha';
-import { setupComponentTest } from 'ember-mocha';
+import { setupRenderingTest } from 'ember-mocha';
 import sinon from 'sinon';
+import { click } from '@ember/test-helpers';
 
 describe('Integration | Component | intro js', function() {
-  setupComponentTest('intro-js', {
-    integration: false
-  });
+  setupRenderingTest();
 
   beforeEach(function(){
     var html = `
@@ -86,53 +85,42 @@ describe('Integration | Component | intro js', function() {
       });
 
       describe('when start-if changes to truthy', function(){
-        beforeEach(function(){
-          run(this.component, 'set', 'start-if', true);
-        });
-
         it('renders introJS', function(){
+          run(this.component, 'set', 'start-if', true);
+
           expect($('.introjs-overlay').length).to.equal(1);
         });
       });
     });
 
     describe('when start-if is truthy', function(){
-      beforeEach(function(){
+      it('works', function(){
         this.component = this.subject({
           'start-if': true,
           steps: this.steps
         });
         this.render();
-      });
 
-      it('works', function(){
         expect($('body').text()).to.include("Step 1");
       });
 
       describe('when start-if changes to falsy', function(){
-
-        beforeEach(function(){
+        it('hides introJS', function(){
           this.clock = sinon.useFakeTimers();
           run(this.component, 'set', 'start-if', false);
           this.clock.tick(501);
-        });
 
-        afterEach(function(){
-          this.clock.restore();
-        });
-
-        it('hides introJS', function(){
           expect($('.introjs-overlay').length).to.equal(0);
+
+          this.clock.restore();
         });
       });
 
       describe('when exiting', function(){
-        beforeEach(function(){
+        it('fires the on-exit action', async function(){
           this.sandbox.stub(this.component, 'sendAction');
-          $('.introjs-skipbutton').click();
-        });
+          await click('.introjs-skipbutton');
 
-        it('fires the on-exit action', function(){
           expect(this.component.sendAction).to.have.been.calledWith(
             'on-exit',
             steps[0]
@@ -141,9 +129,9 @@ describe('Integration | Component | intro js', function() {
       });
 
       describe('when going to the next step', function(){
-        beforeEach(function(){
+        beforeEach(async function(){
           this.sandbox.stub(this.component, 'sendAction');
-          $('.introjs-nextbutton').click();
+          await click('.introjs-nextbutton');
         });
 
         it('fires the on-before-change action', function(){
@@ -175,11 +163,8 @@ describe('Integration | Component | intro js', function() {
         });
 
         describe('when completing', function(){
-          beforeEach(function(){
-            $('.introjs-skipbutton').click();
-          });
-
-          it('fires the on-complete action', function(){
+          it('fires the on-complete action', async function(){
+            await click('.introjs-skipbutton');
             expect(this.component.sendAction).to.have.been.calledWith(
               'on-complete',
               steps[1]

@@ -1,12 +1,10 @@
 import { expect } from 'chai';
 import { describe, it } from 'mocha';
-import { setupComponentTest } from 'ember-mocha';
+import { setupRenderingTest } from 'ember-mocha';
 import hbs from 'htmlbars-inline-precompile';
 
 describe('Integration | Component | Step', function() {
-  setupComponentTest('intro-js/step', {
-    integration: true
-  });
+  setupRenderingTest();
 
   it('renders', function() {
     this.render(hbs`{{intro-js/step}}`);
