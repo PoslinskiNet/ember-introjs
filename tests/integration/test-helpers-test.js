@@ -1,18 +1,13 @@
-import $ from 'jquery';
-import { expect } from 'chai';
-import {
-  describe,
-  it,
-  beforeEach,
-  afterEach
-} from 'mocha';
-import { visit } from '@ember/test-helpers';
 import {
   introJSNext,
   introJSPrevious,
   introJSExit,
   introJSEnsureClosed,
   introJSCurrentStep } from './../helpers/ember-introjs';
+import $ from 'jquery';
+import { expect } from 'chai';
+import { describe, it, beforeEach, afterEach } from 'mocha';
+import { visit } from '@ember/test-helpers';
 
 describe('test helpers', function(){
   beforeEach(async function(){

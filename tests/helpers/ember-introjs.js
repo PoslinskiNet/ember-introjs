@@ -1,8 +1,8 @@
-/* global click wait */
 import { on } from '@ember/object/evented';
 
 import $ from 'jquery';
 import IntroJSComponent from 'ember-introjs/components/intro-js';
+import { click } from '@ember/test-helpers';
 
 let nextCompleted = false;
 let currentStep;
@@ -10,7 +10,7 @@ let introJS;
 
 const _checkNextCompleted = async() => {
   if (!nextCompleted) {
-    return await wait().then(_checkNextCompleted);
+    return await _checkNextCompleted();
   } else {
     nextCompleted = false;
   }
@@ -18,7 +18,7 @@ const _checkNextCompleted = async() => {
 
 const _checkExitCompleted = async() => {
   if ($('.introjs-overlay').length !== 0) {
-    return await wait().then(_checkExitCompleted);
+    return await _checkExitCompleted();
   }
 }
 
@@ -28,7 +28,7 @@ const _checkExitCompleted = async() => {
  */
 const introJSNext = async() => {
   await click($('.introjs-nextbutton'));
-  return await wait().then(_checkNextCompleted);
+  return await _checkNextCompleted();
 };
 
 /**
@@ -37,7 +37,7 @@ const introJSNext = async() => {
  */
 const introJSPrevious = async() => {
   await click($('.introjs-prevbutton'));
-  return await wait().then(_checkNextCompleted);
+  return await _checkNextCompleted();
 };
 
 /**
@@ -46,7 +46,7 @@ const introJSPrevious = async() => {
  */
 const introJSExit = async() => {
   await click($('.introjs-skipbutton'));
-  return await wait().then(_checkExitCompleted);
+  return await _checkExitCompleted();
 };
 
 /**
@@ -54,11 +54,12 @@ const introJSExit = async() => {
  * @returns {Promise}
  */
 const introJSEnsureClosed = async() => {
-  if (!introJS) {
-    return await wait();
+  if (introJS) {
+    introJS.exit();
+    return await _checkExitCompleted();
   }
-  introJS.exit();
-  return await wait().then(_checkExitCompleted);
+
+  return;
 };
 
 /**
@@ -94,11 +95,11 @@ IntroJSComponent.reopen({
   })
 });
 
-export default {
-  IntroJSComponent,
+export {
   introJSNext,
   introJSPrevious,
   introJSExit,
   introJSEnsureClosed,
-  introJSCurrentStep
+  introJSCurrentStep,
+  IntroJSComponent
 };

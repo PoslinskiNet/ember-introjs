@@ -10,7 +10,7 @@ import {
 } from 'mocha';
 import { setupRenderingTest } from 'ember-mocha';
 import sinon from 'sinon';
-import { click } from '@ember/test-helpers';
+import { click, render } from '@ember/test-helpers';
 
 describe('Integration | Component | intro js', function() {
   setupRenderingTest();
@@ -72,12 +72,12 @@ describe('Integration | Component | intro js', function() {
     });
 
     describe('when start-if is falsy', function(){
-      beforeEach(function(){
+      beforeEach(async function(){
         this.component = this.subject({
           'start-if': false,
           steps: this.steps
         });
-        this.render();
+        await render();
       });
 
       it('does not render the introjs component', function(){
@@ -94,12 +94,12 @@ describe('Integration | Component | intro js', function() {
     });
 
     describe('when start-if is truthy', function(){
-      it('works', function(){
+      it('works', async function(){
         this.component = this.subject({
           'start-if': true,
           steps: this.steps
         });
-        this.render();
+        await render();
 
         expect($('body').text()).to.include("Step 1");
       });
