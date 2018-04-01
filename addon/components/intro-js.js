@@ -125,12 +125,12 @@ export default Component.extend({
   },
 
   registerCallbacksWithIntroJS: function(){
-    var intro = this.get('introJS');
+    let intro = this.get('introJS');
 
     intro.onbeforechange(bind(this, function(elementOfNewStep){
-      var prevStep = this.get('currentStep');
+      let prevStep = this.get('currentStep');
       this._setCurrentStep(this.get('introJS._currentStep'));
-      var nextStep = this.get('currentStep');
+      let nextStep = this.get('currentStep');
 
       this.sendAction('on-before-change', prevStep, nextStep, this, elementOfNewStep);
     }));

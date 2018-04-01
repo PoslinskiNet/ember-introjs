@@ -8,8 +8,11 @@ import $ from 'jquery';
 import { expect } from 'chai';
 import { describe, it, beforeEach, afterEach } from 'mocha';
 import { visit } from '@ember/test-helpers';
+import { setupApplicationTest } from 'ember-mocha';
 
-describe('test helpers', function(){
+describe('test helpers', function(hooks) {
+  setupApplicationTest(hooks);
+
   beforeEach(async function(){
     await visit('/');
   });
