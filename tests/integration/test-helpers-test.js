@@ -1,6 +1,4 @@
-import { run } from '@ember/runloop';
 import $ from 'jquery';
-import startApp from 'dummy/tests/helpers/start-app';
 import { expect } from 'chai';
 import {
   describe,
@@ -8,46 +6,39 @@ import {
   beforeEach,
   afterEach
 } from 'mocha';
-
-let App;
+import { visit } from '@ember/test-helpers';
+import {
+  introJSNext,
+  introJSPrevious,
+  introJSExit,
+  introJSEnsureClosed,
+  introJSCurrentStep } from './../helpers/ember-introjs';
 
 describe('test helpers', function(){
-  beforeEach(function(){
-    App = startApp();
-    visit('/');
+  beforeEach(async function(){
+    await visit('/');
   });
 
-  afterEach(function(){
-    introJSEnsureClosed();
-
-    return andThen(() =>{
-      run(App, 'destroy');
-      App = null;
-    });
+  afterEach(async function(){
+    return await introJSEnsureClosed();
   });
 
-  it('can use the next helper', function(){
-    introJSNext();
+  it('can use the next helper', async function(){
+    await introJSNext();
 
-    return andThen(() => {
-      expect(introJSCurrentStep().intro).to.equal('Step 2!');
-    });
+    expect(introJSCurrentStep().intro).to.equal('Step 2!');
   });
 
-  it('can use the exit helper', function(){
-    introJSExit();
+  it('can use the exit helper', async function(){
+    await introJSExit();
 
-    return andThen(() => {
-      expect($('.introjs-overlay').length).to.equal(0);
-    });
+    expect($('.introjs-overlay').length).to.equal(0);
   });
 
-  it('can use the previous helper', function(){
-    introJSNext();
-    introJSPrevious();
+  it('can use the previous helper', async function(){
+    await introJSNext();
+    await introJSPrevious();
 
-    return andThen(() =>{
-      expect(introJSCurrentStep().intro).to.equal('Step 1!');
-    });
+    expect(introJSCurrentStep().intro).to.equal('Step 1!');
   });
 });
