@@ -1,7 +1,7 @@
 import { on } from '@ember/object/evented';
 
 import IntroJSComponent from 'ember-introjs/components/intro-js';
-import { click, waitFor } from '@ember/test-helpers';
+import { click } from '@ember/test-helpers';
 
 let nextCompleted = false;
 let currentStep;
@@ -19,7 +19,7 @@ const _checkExitCompleted = async() => {
   const overlay = document.querySelector('.introjs-overlay');
 
   if (overlay !== null) {
-    return await waitFor('.introjs-overlay', { count: 0 });
+    return await new Promise((resolve) => { setTimeout(() => resolve(), 500) });
   }
 }
 
@@ -46,7 +46,7 @@ const introJSPrevious = async() => {
 /**
  * Exits the intro
  */
-const introJSExit = async(a) => {
+const introJSExit = async() => {
   const button = document.querySelector('.introjs-skipbutton');
 
   await click(button);
