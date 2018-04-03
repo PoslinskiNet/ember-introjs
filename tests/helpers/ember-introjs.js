@@ -1,8 +1,7 @@
 import { on } from '@ember/object/evented';
 
-import $ from 'jquery';
 import IntroJSComponent from 'ember-introjs/components/intro-js';
-import { click } from '@ember/test-helpers';
+import { click, waitFor } from '@ember/test-helpers';
 
 let nextCompleted = false;
 let currentStep;
@@ -17,41 +16,45 @@ const _checkNextCompleted = async() => {
 }
 
 const _checkExitCompleted = async() => {
-  if ($('.introjs-overlay').length !== 0) {
-    return await _checkExitCompleted();
+  const overlay = document.querySelector('.introjs-overlay');
+
+  if (overlay !== null) {
+    return await waitFor('.introjs-overlay', { count: 0 });
   }
 }
 
 /**
  * Goes to the next step of the intro
- * @returns {Promise}
  */
 const introJSNext = async() => {
-  await click($('.introjs-nextbutton'));
+  const button = document.querySelector('.introjs-nextbutton');
+
+  await click(button);
   return await _checkNextCompleted();
 };
 
 /**
  * Goes to the previous step of the intro
- * @returns {Promise}
  */
 const introJSPrevious = async() => {
-  await click($('.introjs-prevbutton'));
+  const button = document.querySelector('.introjs-prevbutton');
+
+  await click(button);
   return await _checkNextCompleted();
 };
 
 /**
  * Exits the intro
- * @returns {Promise}
  */
-const introJSExit = async() => {
-  await click($('.introjs-skipbutton'));
+const introJSExit = async(a) => {
+  const button = document.querySelector('.introjs-skipbutton');
+
+  await click(button);
   return await _checkExitCompleted();
 };
 
 /**
  * Force exit of the intro
- * @returns {Promise}
  */
 const introJSEnsureClosed = async() => {
   if (introJS) {
@@ -64,7 +67,6 @@ const introJSEnsureClosed = async() => {
 
 /**
  * Current step of the intro
- * @returns {Number}
  */
 const introJSCurrentStep = function() {
   return currentStep;

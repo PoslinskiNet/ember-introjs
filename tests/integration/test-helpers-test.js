@@ -4,14 +4,13 @@ import {
   introJSExit,
   introJSEnsureClosed,
   introJSCurrentStep } from './../helpers/ember-introjs';
-import $ from 'jquery';
 import { expect } from 'chai';
 import { describe, it, beforeEach, afterEach } from 'mocha';
 import { visit } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-mocha';
 
-describe('test helpers', function(hooks) {
-  setupApplicationTest(hooks);
+describe('test helpers', function() {
+  setupApplicationTest();
 
   beforeEach(async function(){
     await visit('/');
@@ -30,7 +29,7 @@ describe('test helpers', function(hooks) {
   it('can use the exit helper', async function(){
     await introJSExit();
 
-    expect($('.introjs-overlay').length).to.equal(0);
+    expect(document.querySelector('.introjs-overlay')).to.equal(null);
   });
 
   it('can use the previous helper', async function(){
