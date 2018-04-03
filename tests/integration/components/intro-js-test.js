@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import { expect } from 'chai';
 import {
   describe,
@@ -7,19 +6,24 @@ import {
   afterEach
 } from 'mocha';
 import { setupRenderingTest } from 'ember-mocha';
-import { render, waitFor } from '@ember/test-helpers';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 describe('Integration | Component | intro js', function() {
   setupRenderingTest();
 
   beforeEach(function(){
-    $('body').append(`
-    <div id="introjs-fixture">
-      <div id="step1">Foo</div>
-      <div id="step2">Bar</div>
-    </div>`);
-    this.steps = [
+    const fixture = document.createElement('div');
+    fixture.innerHTML = `
+      <div id="introjs-fixture">
+        <div id="step1">Foo</div>
+        <div id="step2">Bar</div>
+      </div>
+    `;
+
+    this.element.appendChild(fixture);
+
+    const steps = [
       {
         element: '#step1',
         intro: 'Step 1'
@@ -29,43 +33,46 @@ describe('Integration | Component | intro js', function() {
         intro: 'Step 2'
       }
     ];
+
+    this.set('fixture', fixture);
+    this.set('steps', steps);
   });
 
   afterEach(function(){
-    $("#introjs-fixture").remove();
+    if (this.element) {
+      this.element.removeChild(this.element.lastChild);
+    }
   });
 
   describe('start-if', function(){
     it('when start-if is falsy does not render the introjs component', async function(){
-      this.set('startIf', true);
+      this.set('startIf', false);
 
-      await render(hbs`{{intro-js/step steps=steps start-if=startIf}}`);
+      await render(hbs`{{intro-js steps=steps start-if=startIf}}`);
 
-      expect($('.introjs-overlay').length).to.equal(0);
+      expect(document.querySelector('.introjs-overlay')).to.equal(null);
     });
 
     it('when start-if changes to truthy renders introJS', async function(){
       this.set('startIf', false);
 
-      await render(hbs`{{intro-js/step steps=steps start-if=startIf}}`);
+      await render(hbs`{{intro-js steps=steps start-if=startIf}}`);
+      expect(document.querySelector('.introjs-overlay')).to.equal(null);
 
       this.set('startIf', true);
-
-      await waitFor('.introjs-overlay');
-
-      expect($('body').text()).to.include("Step 1");
+      expect(document.querySelector('.introjs-overlay')).to.be.ok;
     });
 
     it('when start-if changes to falsy hides introJS', async function(){
       this.set('startIf', true);
 
-      await render(hbs`{{intro-js/step steps=steps start-if=startIf}}`);
-
+      await render(hbs`{{intro-js steps=steps start-if=startIf}}`);
       this.set('startIf', false);
 
-      await waitFor('.introjs-overlay', { count: 0 });
+      // TODO: hack for animation
+      await new Promise((resolve) => { setTimeout(() => resolve(), 500) });
 
-      expect($('.introjs-overlay').length).to.equal(0);
+      expect(document.querySelector('.introjs-overlay')).to.equal(null);
     });
 
     // describe('when start-if is truthy', function(){
