@@ -6,11 +6,15 @@ import {
   afterEach
 } from 'mocha';
 import { setupRenderingTest } from 'ember-mocha';
-import { render } from '@ember/test-helpers';
+import { render, click } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
+import{ wait, assert, assertions, reset, check } from './../../helpers/support';
 
 describe('Integration | Component | intro js', function() {
   setupRenderingTest();
+
+  beforeEach(reset);
+  afterEach(check);
 
   beforeEach(function(){
     const fixture = document.createElement('div');
@@ -64,74 +68,106 @@ describe('Integration | Component | intro js', function() {
     });
 
     it('when start-if changes to falsy hides introJS', async function(){
+      assertions(1);
+
       this.set('startIf', true);
 
       await render(hbs`{{intro-js steps=steps start-if=startIf}}`);
       this.set('startIf', false);
 
       // TODO: hack for animation
-      await new Promise((resolve) => { setTimeout(() => resolve(), 500) });
+      await wait();
 
-      expect(document.querySelector('.introjs-overlay')).to.equal(null);
+      assert(expect(document.querySelector('.introjs-overlay')).to.equal(null));
     });
+  });
 
-    // describe('when start-if is truthy', function(){
-      // describe('when exiting', function(){
-      //   it('fires the on-exit action', async function(){
-      //     sinon.sandbox.create().stub(this.component, 'sendAction');
-      //     await click('.introjs-skipbutton');
-      //
-      //     expect(this.component.sendAction).to.have.been.calledWith(
-      //       'on-exit',
-      //       this.steps[0]
-      //     );
-      //   });
-      // });
+  describe('when exiting', function(){
+    it('fires the on-exit action', async function(){
+      assertions(2);
 
-      // describe('when going to the next step', function(){
-      //   beforeEach(async function(){
-      //     sinon.sandbox.create().stub(this.component, 'sendAction');
-      //     await click('.introjs-nextbutton');
-      //   });
-      //
-      //   it('fires the on-before-change action', function(){
-      //     expect(this.component.sendAction).to.have.been.calledWith(
-      //       'on-before-change',
-      //       this.steps[0],
-      //       this.steps[1],
-      //       this.component,
-      //       $('#step2')[0]
-      //     );
-      //   });
-      //
-      //   it('fires the on-change action', function(){
-      //     expect(this.component.sendAction).to.have.been.calledWith(
-      //       'on-change',
-      //       this.steps[1],
-      //       this.component,
-      //       $('#step2')[0]
-      //     );
-      //   });
-      //
-      //   it('fires the on-after-change action', function(){
-      //     expect(this.component.sendAction).to.have.been.calledWith(
-      //       'on-after-change',
-      //       this.steps[1],
-      //       this.component,
-      //       $('#step2')[0]
-      //     );
-      //   });
-      //
-      //   describe('when completing', function(){
-      //     it('fires the on-complete action', async function(){
-      //       await click('.introjs-skipbutton');
-      //       expect(this.component.sendAction).to.have.been.calledWith(
-      //         'on-complete',
-      //         this.steps[1]
-      //       );
-      //     });
-      //   });
-      // });
-    // });
+      this.set('myExit', (step) => {
+        assert(expect(step).to.equal(this.steps[0]));
+      })
+
+      await render(hbs`{{intro-js steps=steps start-if=true on-exit=(action myExit)}}`);
+
+      await click(document.querySelector('.introjs-skipbutton'));
+    });
+  });
+
+  // describe('when completing', function(){
+  //   it('fires the on-complete action', async function(){
+  //     assertions(1);
+  //
+  //     this.set('myComplete', (step) => {
+  //       assert(expect(step).to.equal(this.steps[1]));
+  //     })
+  //
+  //     await render(hbs`{{intro-js steps=steps start-if=true on-complete=(action myComplete)}}`);
+  //
+  //     await click(document.querySelector('.introjs-skipbutton'));
+  //   });
+  // });
+
+  describe('when going to the next step', function(){
+    it('fires the on-before-change action', async function(){
+      assertions(1);
+
+      this.set('beforeChange', (currentStep, nextStep, component, step2) => {
+        let introJsComponent = this.owner.lookup('component:intro-js');
+
+        assert(() => {
+          expect(currentStep).to.equal(this.steps[0]);
+          expect(nextStep).to.equal(this.steps[1]);
+          expect(component).to.equal(introJsComponent);
+          expect(step2).to.equal(this.steps[0].intro);
+        })
+      })
+
+      await render(hbs`{{intro-js steps=steps start-if=true on-before-change=(action beforeChange)}}`);
+
+      await click(document.querySelector('.introjs-skipbutton'));
+    });
+  });
+
+  describe('when going to the next step', function(){
+    it('fires the on-after-change action', async function(){
+      assertions(1);
+
+      this.set('afterChange', (nextStep, component, step2) => {
+        let introJsComponent = this.owner.lookup('component:intro-js');
+
+        assert(() => {
+          expect(nextStep).to.equal(this.steps[1]);
+          expect(component).to.equal(introJsComponent);
+          expect(step2).to.equal(this.steps[0].intro);
+        })
+      })
+
+      await render(hbs`{{intro-js steps=steps start-if=true on-after-change=(action afterChange)}}`);
+
+      await click(document.querySelector('.introjs-skipbutton'));
+    });
+  });
+
+  describe('when going to the next step', function(){
+    it('fires the on-change action', async function(){
+      assertions(1);
+
+      this.set('onChange', (nextStep, component, step2) => {
+        let introJsComponent = this.owner.lookup('component:intro-js');
+
+        assert(() => {
+          expect(nextStep).to.equal(this.steps[1]);
+          expect(component).to.equal(introJsComponent);
+          expect(step2).to.equal(this.steps[0].intro);
+        })
+      })
+
+      await render(hbs`{{intro-js steps=steps start-if=true on-change=(action onChange)}}`);
+
+      await click(document.querySelector('.introjs-skipbutton'));
+    });
   });
 });

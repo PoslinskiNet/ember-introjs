@@ -124,7 +124,7 @@ export default Component.extend({
     }
   },
 
-  registerCallbacksWithIntroJS: function(){
+  registerCallbacksWithIntroJS(){
     let intro = this.get('introJS');
 
     intro.onbeforechange(bind(this, function(elementOfNewStep){
@@ -148,15 +148,15 @@ export default Component.extend({
     intro.onexit(bind(this, this._onExit));
   },
 
-  _setIntroJS: function(introJS){
+  _setIntroJS(introJS){
     this.set('introJS', introJS);
   },
 
-  _onAfterChange: function(targetElement){
+  _onAfterChange(targetElement){
     this.sendAction('on-after-change', this.get('currentStep'), this, targetElement);
   },
 
-  _onExit: function(){
+  _onExit(){
     this.sendAction('on-exit', this.get('currentStep'), this);
   },
 

@@ -1,7 +1,7 @@
 module.exports = {
   root: true,
   parserOptions: {
-    ecmaVersion: 2017,
+    ecmaVersion: 2018,
     sourceType: 'module'
   },
   plugins: [
@@ -16,7 +16,8 @@ module.exports = {
   },
   rules: {
     'ember/no-on-calls-in-components': 'off',
-    'ember/closure-actions': 'off'
+    'ember/closure-actions': 'off',
+    'node/no-unsupported-features': 'off'
   },
   overrides: [
     // node files
