@@ -1,23 +1,84 @@
-/* global click wait */
 import { on } from '@ember/object/evented';
 
-import $ from 'jquery';
 import IntroJSComponent from 'ember-introjs/components/intro-js';
-import Ember from 'ember';
-
-const {
-  Test
-} = Ember;
+import { click, waitUntil } from '@ember/test-helpers';
 
 let nextCompleted = false;
 let currentStep;
 let introJS;
+
+const _checkNextCompleted = async() => {
+  if (!nextCompleted) {
+    return await _checkNextCompleted();
+  } else {
+    nextCompleted = false;
+  }
+}
+
+const _checkExitCompleted = async() => {
+  const overlay = document.querySelector('.introjs-overlay');
+
+  if (overlay !== null) {
+    return await waitUntil(() => document.querySelectorAll('.introjs-overlay').length === 0);
+  }
+}
+
+/**
+* Skip the intro
+*/
+const introJSSkip = () => {
+  return click(document.querySelector('.introjs-skipbutton'));
+};
+
+/**
+ * Goes to the next step of the intro
+ */
+const introJSNext = async() => {
+  await click(document.querySelector('.introjs-nextbutton'));
+  return _checkNextCompleted();
+};
+
+/**
+ * Goes to the previous step of the intro
+ */
+const introJSPrevious = async() => {
+  await click(document.querySelector('.introjs-prevbutton'));
+  return _checkNextCompleted();
+};
+
+/**
+ * Exits the intro
+ */
+const introJSExit = async() => {
+  await click(document.querySelector('.introjs-skipbutton'));
+  return _checkExitCompleted();
+};
+
+/**
+ * Force exit of the intro
+ */
+const introJSEnsureClosed = () => {
+  if (introJS) {
+    introJS.exit();
+    return _checkExitCompleted();
+  }
+
+  return;
+};
+
+/**
+ * Current step of the intro
+ */
+const introJSCurrentStep = function() {
+  return currentStep;
+};
 
 IntroJSComponent.reopen({
   _setIntroJS(_introJS) {
     introJS = _introJS;
     this._super(introJS);
   },
+
   _onExit(){
     this._super();
   },
@@ -37,65 +98,12 @@ IntroJSComponent.reopen({
   })
 });
 
-export default IntroJSComponent;
-
-/**
- * Goes to the next step of the intro
- * @returns {Promise}
- */
-Test.registerAsyncHelper('introJSNext', function(){
-  click($('.introjs-nextbutton'));
-  return wait().then(_checkNextCompleted);
-});
-
-/**
- * Goes to the previous step of the intro
- * @returns {Promise}
- */
-Test.registerAsyncHelper('introJSPrevious', function(){
-  click($('.introjs-prevbutton'));
-  return wait().then(_checkNextCompleted);
-});
-
-/**
- * Exits the intro
- * @returns {Promise}
- */
-Test.registerAsyncHelper('introJSExit', function(){
-  click($('.introjs-skipbutton'));
-  return wait().then(_checkExitCompleted);
-});
-
-/**
- * Force exit of the intro
- * @returns {Promise}
- */
-Test.registerAsyncHelper('introJSEnsureClosed', function(){
-  if (!introJS) {
-    return wait();
-  }
-  introJS.exit();
-  return wait().then(_checkExitCompleted);
-});
-
-/**
- * Current step of the intro
- * @returns {Number}
- */
-Test.registerHelper('introJSCurrentStep', function() {
-  return currentStep;
-});
-
-function _checkNextCompleted() {
-  if (!nextCompleted) {
-    return wait().then(_checkNextCompleted);
-  } else {
-    nextCompleted = false;
-  }
-}
-
-function _checkExitCompleted() {
-  if ($('.introjs-overlay').length !== 0) {
-    return wait().then(_checkExitCompleted);
-  }
-}
+export {
+  introJSSkip,
+  introJSNext,
+  introJSPrevious,
+  introJSExit,
+  introJSEnsureClosed,
+  introJSCurrentStep,
+  IntroJSComponent
+};

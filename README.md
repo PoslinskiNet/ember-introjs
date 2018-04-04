@@ -10,7 +10,8 @@
 Ember IntroJS wraps [introjs][intro-js] in an Ember Component to guide
 users through your app.
 
-## Installation
+Installation
+------------------------------------------------------------------------------
 
 `ember install ember-introjs`
 
@@ -162,37 +163,28 @@ IntroJSComponent.reopen({
 });
 ```
 
- - `steps`: For defining steps using JSON configuration (see
-   [this](https://github.com/usablica/intro.js/blob/master/example/programmatic/index.html)
-example)
- - `next-label`: Next button label
- - `prev-label`: Previous button label
- - `skip-label`: Skip button label
- - `done-label`: Done button label
- - `tooltip-position`: Default tooltip position
- - `tooltip-class`: Adding CSS class to all tooltips
- - `highlight-class`: Additional CSS class for the helperLayer
- - `exit-on-esc`: Exit introduction when pressing Escape button, `true` or
-   `false`
- - `exit-on-overlay-click`: Exit introduction when clicking on overlay
-   layer, `true` or `false`
- - `show-step-numbers`: Show steps number in the red circle or not, `true`
-   or `false`
- - `keyboard-navigation`: Navigating with keyboard or not, `true` or
-   `false`
- - `show-buttons`: Show introduction navigation buttons or not, `true` or
-   `false`
- - `show-bullets`: Show introduction bullets or not, `true` or `false`
- - `show-progress`: Show introduction progress or not, `true` or `false`
- - `scroll-to-element`: Auto scroll to highlighted element if it's outside
-   of viewport, `true` or `false`
- - `overlay-opacity`: Adjust the overlay opacity, `Number`
- - `disable-interaction`: Disable an interaction inside element or not,
-   `true` or `false`
+| property | description |
+|---|---|
+| `steps` | For defining steps using JSON configuration (see [this](https://github.com/usablica/intro.js/blob/master/example/programmatic/index.html) example) |
+| `next-label` | Next button label |
+| `prev-label` | Previous button label |
+| `skip-label` | Skip button label |
+| `done-label` | Done button label |
+| `tooltip-position` | Default tooltip position |
+| `tooltip-class` | Adding CSS class to all tooltips |
+| `highlight-class` | Additional CSS class for the helperLayer |
+| `exit-on-esc` | Exit introduction when pressing Escape button, `true` or `false` |
+| `exit-on-overlay-click` | Exit introduction when clicking on overlay layer, `true` or `false` |
+| `show-step-numbers` | Show steps number in the red circle or not, `true` or `false` |
+| `keyboard-navigation` | Navigating with keyboard or not, `true` or `false` |
+| `show-buttons` | Show introduction navigation buttons or not, `true` or `false` |
+| `show-bullets` | Show introduction bullets or not, `true` or `false` |
+| `show-progress` | Show introduction progress or not, `true` or `false` |
+| `scroll-to-element` | Auto scroll to highlighted element if it's outside of viewport, `true` or `false` |
+| `overlay-opacity` | Adjust the overlay opacity, `Number` |
+| `disable-interaction` | Disable an interaction inside element or not, `true` or `false` |
 
-See
-[setOption](https://github.com/usablica/intro.js/#introjssetoptionoption-value)
-to see an example.
+See [setOption](https://github.com/usablica/intro.js/#introjssetoptionoption-value) to see an example.
 
 ### Testing Helpers
 
@@ -205,14 +197,15 @@ To use them, first import them in your `tests/test-helper.js` file:
 import './helpers/ember-introjs';
 ```
 
-## Running Tests
+### Running tests
 
 * `ember test`
 * `ember test --server`
 
-## Building
+### Running the dummy application
 
-* `ember build`
+* `ember serve`
+* Visit the dummy application at [http://localhost:4200](http://localhost:4200).
 
 For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
 

@@ -1,6 +1,5 @@
-import resolver from './helpers/resolver';
-import { setResolver } from 'ember-mocha';
+import Application from 'dummy/app';
+import config from 'dummy/config/environment';
+import { setApplication } from '@ember/test-helpers';
 
-import './helpers/ember-introjs';
-
-setResolver(resolver);
+setApplication(Application.create(config.APP));

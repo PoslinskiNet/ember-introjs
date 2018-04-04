@@ -1,6 +1,3 @@
-import { later, next, run } from '@ember/runloop';
-import { Promise as EmberPromise } from 'rsvp';
-import $ from 'jquery';
 import { expect } from 'chai';
 import {
   describe,
@@ -8,185 +5,190 @@ import {
   beforeEach,
   afterEach
 } from 'mocha';
-import { setupComponentTest } from 'ember-mocha';
-import sinon from 'sinon';
+import { setupRenderingTest } from 'ember-mocha';
+import { render, waitUntil } from '@ember/test-helpers';
+import hbs from 'htmlbars-inline-precompile';
+import { introJSNext, introJSSkip } from './../../helpers/ember-introjs'
+import{ assert, assertions, reset, check } from './../../helpers/chai-assertions';
 
 describe('Integration | Component | intro js', function() {
-  setupComponentTest('intro-js', {
-    integration: false
-  });
+  setupRenderingTest();
+
+  beforeEach(reset);
+  afterEach(check);
 
   beforeEach(function(){
-    var html = `
-    <div id="introjs-fixture">
-      <div id="step1">
-        Foo
+    const fixture = document.createElement('div');
+    fixture.innerHTML = `
+      <div id="introjs-fixture">
+        <div id="step1">Foo</div>
+        <div id="step2">Bar</div>
       </div>
-      <div id="step2">
-        Bar
-      </div>
-    </div>
     `;
-    $('body').append(html);
-  });
 
-  beforeEach(function(){
-    this.sandbox = sinon.sandbox.create();
-  });
+    this.element.appendChild(fixture);
 
-  afterEach(function(){
-    this.sandbox.restore();
-  });
+    const steps = [
+      {
+        element: '#step1',
+        intro: 'Step 1'
+      },
+      {
+        element: '#step2',
+        intro: 'Step 2'
+      }
+    ];
 
-  // Wait for the overlay to close if it's open
-  beforeEach(function(){
-    return new EmberPromise((resolve) =>{
-      var fn = () => {
-        if ($('.introjs-overlay').length === 0) {
-          resolve();
-        } else {
-          later(fn, 100);
-        }
-      };
-      next(fn);
-    });
+    this.set('fixture', fixture);
+    this.set('steps', steps);
   });
 
   afterEach(function(){
-    $('#introjs-fixture').remove();
+    if (this.element) {
+      this.element.removeChild(this.element.lastChild);
+    }
   });
 
   describe('start-if', function(){
-    var steps;
+    it('when start-if is falsy does not render the introjs component', async function(){
+      assertions(1);
 
-    beforeEach(function(){
-      steps = this.steps = [
-        {
-          element: '#step1',
-          intro: 'Step 1'
-        },
-        {
-          element: '#step2',
-          intro: 'Step 2'
-        }
-      ];
-    });
+      this.set('startIf', false);
 
-    describe('when start-if is falsy', function(){
-      beforeEach(function(){
-        this.component = this.subject({
-          'start-if': false,
-          steps: this.steps
-        });
-        this.render();
-      });
+      await render(hbs`{{intro-js steps=steps start-if=startIf}}`);
 
-      it('does not render the introjs component', function(){
-        expect($('.introjs-overlay').length).to.equal(0);
-      });
-
-      describe('when start-if changes to truthy', function(){
-        beforeEach(function(){
-          run(this.component, 'set', 'start-if', true);
-        });
-
-        it('renders introJS', function(){
-          expect($('.introjs-overlay').length).to.equal(1);
-        });
+      assert(() => {
+        expect(document.querySelector('.introjs-overlay')).to.equal(null)
       });
     });
 
-    describe('when start-if is truthy', function(){
-      beforeEach(function(){
-        this.component = this.subject({
-          'start-if': true,
-          steps: this.steps
-        });
-        this.render();
+    it('when start-if changes to truthy renders introJS', async function(){
+      assertions(2);
+
+      this.set('startIf', false);
+
+      await render(hbs`{{intro-js steps=steps start-if=startIf}}`);
+
+      assert(() => {
+        expect(document.querySelector('.introjs-overlay')).to.equal(null)
       });
 
-      it('works', function(){
-        expect($('body').text()).to.include("Step 1");
+      this.set('startIf', true);
+
+      assert(() => {
+        expect(document.querySelector('.introjs-overlay')).to.be.ok
       });
+    });
 
-      describe('when start-if changes to falsy', function(){
+    it('when start-if changes to falsy hides introJS', async function(){
+      assertions(1);
 
-        beforeEach(function(){
-          this.clock = sinon.useFakeTimers();
-          run(this.component, 'set', 'start-if', false);
-          this.clock.tick(501);
-        });
+      this.set('startIf', true);
 
-        afterEach(function(){
-          this.clock.restore();
-        });
+      await render(hbs`{{intro-js steps=steps start-if=startIf}}`);
 
-        it('hides introJS', function(){
-          expect($('.introjs-overlay').length).to.equal(0);
-        });
+      this.set('startIf', false);
+
+      await waitUntil(() => document.querySelectorAll('.introjs-overlay').length === 0);
+
+      assert(() => {
+        expect(document.querySelector('.introjs-overlay')).to.equal(null)
       });
+    });
+  });
 
-      describe('when exiting', function(){
-        beforeEach(function(){
-          this.sandbox.stub(this.component, 'sendAction');
-          $('.introjs-skipbutton').click();
+  describe('when exiting', function(){
+    it('fires the on-exit action', async function(){
+      assertions(2);
+
+      this.set('myExit', (step) => {
+        assert(() => {
+          expect(step).to.equal(this.steps[0])
         });
+      })
 
-        it('fires the on-exit action', function(){
-          expect(this.component.sendAction).to.have.been.calledWith(
-            'on-exit',
-            steps[0]
-          );
+      await render(hbs`{{intro-js steps=steps start-if=true on-exit=(action myExit)}}`);
+
+      await introJSSkip();
+    });
+  });
+
+  describe('when completing', function(){
+    it('fires the on-complete action', async function(){
+      assertions(1);
+
+      this.set('myComplete', (step) => {
+        assert(() => {
+          expect(step).to.equal(this.steps[1])
         });
-      });
+      })
 
-      describe('when going to the next step', function(){
-        beforeEach(function(){
-          this.sandbox.stub(this.component, 'sendAction');
-          $('.introjs-nextbutton').click();
-        });
+      await render(hbs`{{intro-js steps=steps start-if=true on-complete=(action myComplete)}}`);
 
-        it('fires the on-before-change action', function(){
-          expect(this.component.sendAction).to.have.been.calledWith(
-            'on-before-change',
-            steps[0],
-            steps[1],
-            this.component,
-            $('#step2')[0]
-          );
-        });
+      await introJSNext();
 
-        it('fires the on-change action', function(){
-          expect(this.component.sendAction).to.have.been.calledWith(
-            'on-change',
-            steps[1],
-            this.component,
-            $('#step2')[0]
-          );
-        });
+      await introJSSkip();
+    });
+  });
 
-        it('fires the on-after-change action', function(){
-          expect(this.component.sendAction).to.have.been.calledWith(
-            'on-after-change',
-            steps[1],
-            this.component,
-            $('#step2')[0]
-          );
-        });
+  describe('when going to the next step', function(){
+    it('fires the on-before-change action', async function(){
+      assertions(1);
 
-        describe('when completing', function(){
-          beforeEach(function(){
-            $('.introjs-skipbutton').click();
-          });
+      this.set('beforeChange', (currentStep, nextStep, component, step2) => {
+        let introJsComponent = this.owner.lookup('component:intro-js');
 
-          it('fires the on-complete action', function(){
-            expect(this.component.sendAction).to.have.been.calledWith(
-              'on-complete',
-              steps[1]
-            );
-          });
-        });
-      });
+        assert(() => {
+          expect(currentStep).to.equal(this.steps[0]);
+          expect(nextStep).to.equal(this.steps[1]);
+          expect(component).to.equal(introJsComponent);
+          expect(step2).to.equal(this.steps[0].intro);
+        })
+      })
+
+      await render(hbs`{{intro-js steps=steps start-if=true on-before-change=(action beforeChange)}}`);
+
+      await introJSSkip();
+    });
+  });
+
+  describe('when going to the next step', function(){
+    it('fires the on-after-change action', async function(){
+      assertions(1);
+
+      this.set('afterChange', (nextStep, component, step2) => {
+        let introJsComponent = this.owner.lookup('component:intro-js');
+
+        assert(() => {
+          expect(nextStep).to.equal(this.steps[1]);
+          expect(component).to.equal(introJsComponent);
+          expect(step2).to.equal(this.steps[0].intro);
+        })
+      })
+
+      await render(hbs`{{intro-js steps=steps start-if=true on-after-change=(action afterChange)}}`);
+
+      await introJSSkip();
+    });
+  });
+
+  describe('when going to the next step', function(){
+    it('fires the on-change action', async function(){
+      assertions(1);
+
+      this.set('onChange', (nextStep, component, step2) => {
+        let introJsComponent = this.owner.lookup('component:intro-js');
+
+        assert(() => {
+          expect(nextStep).to.equal(this.steps[1]);
+          expect(component).to.equal(introJsComponent);
+          expect(step2).to.equal(this.steps[0].intro);
+        })
+      })
+
+      await render(hbs`{{intro-js steps=steps start-if=true on-change=(action onChange)}}`);
+
+      await introJSSkip();
     });
   });
 });

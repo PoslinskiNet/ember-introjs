@@ -105,6 +105,15 @@ export default Component.extend({
     }
   ),
 
+  willDestroyElement() {
+    let intro = this.get('introJS');
+    if (intro) {
+      intro.exit();
+    }
+
+    this._super(...arguments);
+  },
+
   startIntroJS(){
     if (!this.get('introJS')) {
       this._setIntroJS(introJS());
@@ -124,49 +133,42 @@ export default Component.extend({
     }
   },
 
-  registerCallbacksWithIntroJS: function(){
-    var intro = this.get('introJS');
+  registerCallbacksWithIntroJS(){
+    let intro = this.get('introJS');
 
-    intro.onbeforechange(bind(this, function(elementOfNewStep){
-      var prevStep = this.get('currentStep');
-      this._setCurrentStep(this.get('introJS._currentStep'));
-      var nextStep = this.get('currentStep');
-
-      this.sendAction('on-before-change', prevStep, nextStep, this, elementOfNewStep);
-    }));
-
-    intro.onchange(bind(this, function(targetElement){
-      this.sendAction('on-change', this.get('currentStep'), this, targetElement);
-    }));
-
+    intro.onbeforechange(bind(this, this._onBeforeChange));
+    intro.onchange(bind(this, this._onChange));
     intro.onafterchange(bind(this, this._onAfterChange));
-
-    intro.oncomplete(bind(this, function(){
-      this.sendAction('on-complete', this.get('currentStep'));
-    }));
-
+    intro.oncomplete(bind(this, this._onComplete));
     intro.onexit(bind(this, this._onExit));
   },
 
-  _setIntroJS: function(introJS){
+  _setIntroJS(introJS){
     this.set('introJS', introJS);
   },
 
-  _onAfterChange: function(targetElement){
+  _onBeforeChange(elementOfNewStep) {
+    let prevStep = this.get('currentStep');
+    this._setCurrentStep(this.get('introJS._currentStep'));
+    let nextStep = this.get('currentStep');
+
+    this.sendAction('on-before-change', prevStep, nextStep, this, elementOfNewStep);
+  },
+
+  _onChange(targetElement) {
+    this.sendAction('on-change', this.get('currentStep'), this, targetElement);
+  },
+
+  _onAfterChange(targetElement){
     this.sendAction('on-after-change', this.get('currentStep'), this, targetElement);
   },
 
-  _onExit: function(){
+  _onExit(){
     this.sendAction('on-exit', this.get('currentStep'), this);
   },
 
-  willDestroyElement() {
-    let intro = this.get('introJS');
-    if (intro) {
-      intro.exit();
-    }
-
-    this._super(...arguments);
+  _onComplete() {
+    this.sendAction('on-complete', this.get('currentStep'));
   },
 
   _setCurrentStep(step){

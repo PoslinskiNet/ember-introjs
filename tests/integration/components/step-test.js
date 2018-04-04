@@ -1,20 +1,20 @@
 import { expect } from 'chai';
 import { describe, it } from 'mocha';
-import { setupComponentTest } from 'ember-mocha';
+import { setupRenderingTest } from 'ember-mocha';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 describe('Integration | Component | Step', function() {
-  setupComponentTest('intro-js/step', {
-    integration: true
-  });
+  setupRenderingTest();
 
-  it('renders', function() {
-    this.render(hbs`{{intro-js/step}}`);
+  it('renders', async function() {
+    await render(hbs`{{intro-js/step}}`);
+
     expect(this.$()).to.have.length(1);
   });
 
-  it('renders step as a block', function() {
-    this.render(hbs`
+  it('renders step as a block', async function() {
+    await render(hbs`
       {{#intro-js/step}}
         Step content
       {{/intro-js/step}}
