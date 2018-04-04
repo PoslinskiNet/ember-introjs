@@ -50,21 +50,24 @@ describe('Integration | Component | intro js', function() {
 
   describe('start-if', function(){
     it('when start-if is falsy does not render the introjs component', async function(){
+      assertions(1);
       this.set('startIf', false);
 
       await render(hbs`{{intro-js steps=steps start-if=startIf}}`);
 
-      expect(document.querySelector('.introjs-overlay')).to.equal(null);
+      assert(expect(document.querySelector('.introjs-overlay')).to.equal(null));
     });
 
     it('when start-if changes to truthy renders introJS', async function(){
+      assertions(2);
+
       this.set('startIf', false);
 
       await render(hbs`{{intro-js steps=steps start-if=startIf}}`);
-      expect(document.querySelector('.introjs-overlay')).to.equal(null);
+      assert(expect(document.querySelector('.introjs-overlay')).to.equal(null));
 
       this.set('startIf', true);
-      expect(document.querySelector('.introjs-overlay')).to.be.ok;
+      assert(expect(document.querySelector('.introjs-overlay')).to.be.ok);
     });
 
     it('when start-if changes to falsy hides introJS', async function(){
@@ -98,7 +101,7 @@ describe('Integration | Component | intro js', function() {
 
   // describe('when completing', function(){
   //   it('fires the on-complete action', async function(){
-  //     assertions(1);
+  //     assertions(2);
   //
   //     this.set('myComplete', (step) => {
   //       assert(expect(step).to.equal(this.steps[1]));

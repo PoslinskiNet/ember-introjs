@@ -1,3 +1,5 @@
+import { expect } from 'chai';
+
 // animations helper
 const wait = () => new Promise((resolve) => { setTimeout(() => resolve(), 500) });
 
@@ -21,8 +23,7 @@ const reset = () => {
 
 const check = () => {
   if (!expected || expected == actual) return;
-  let err = new Error('expected ' + expected + ' assertions, got ' + actual);
-  this.currentTest.emit('error', err);
+  expect(actual, 'Assertion count').to.equal(expected);
 };
 
 
