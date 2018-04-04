@@ -1,8 +1,5 @@
 import { expect } from 'chai';
 
-// animations helper
-const wait = () => new Promise((resolve) => { setTimeout(() => resolve(), 500) });
-
 // https://github.com/mochajs/mocha/wiki/HOW-TO:-Count-assertions
 let expected = 0;
 let actual = 0;
@@ -26,9 +23,7 @@ const check = () => {
   expect(actual, 'Assertion count').to.equal(expected);
 };
 
-
 export {
-  wait,
   assert,
   assertions,
   reset,

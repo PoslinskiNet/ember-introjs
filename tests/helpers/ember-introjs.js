@@ -1,8 +1,7 @@
 import { on } from '@ember/object/evented';
 
 import IntroJSComponent from 'ember-introjs/components/intro-js';
-import { click } from '@ember/test-helpers';
-import { wait } from './support'
+import { click, waitUntil } from '@ember/test-helpers';
 
 let nextCompleted = false;
 let currentStep;
@@ -20,7 +19,7 @@ const _checkExitCompleted = async() => {
   const overlay = document.querySelector('.introjs-overlay');
 
   if (overlay !== null) {
-    return await wait();
+    return await waitUntil(() => document.querySelectorAll('.introjs-overlay').length === 0);
   }
 }
 

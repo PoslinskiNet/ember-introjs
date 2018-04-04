@@ -6,9 +6,9 @@ import {
   afterEach
 } from 'mocha';
 import { setupRenderingTest } from 'ember-mocha';
-import { render, click } from '@ember/test-helpers';
+import { render, click, waitUntil } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
-import{ wait, assert, assertions, reset, check } from './../../helpers/support';
+import{ assert, assertions, reset, check } from './../../helpers/chai-assertions';
 
 describe('Integration | Component | intro js', function() {
   setupRenderingTest();
@@ -78,8 +78,7 @@ describe('Integration | Component | intro js', function() {
       await render(hbs`{{intro-js steps=steps start-if=startIf}}`);
       this.set('startIf', false);
 
-      // TODO: hack for animation
-      await wait();
+      await waitUntil(() => document.querySelectorAll('.introjs-overlay').length === 0);
 
       assert(expect(document.querySelector('.introjs-overlay')).to.equal(null));
     });

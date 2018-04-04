@@ -16,8 +16,7 @@ module.exports = {
   },
   rules: {
     'ember/no-on-calls-in-components': 'off',
-    'ember/closure-actions': 'off',
-    'node/no-unsupported-features': 'off'
+    'ember/closure-actions': 'off'
   },
   overrides: [
     // node files

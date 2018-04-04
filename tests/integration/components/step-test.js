@@ -9,6 +9,7 @@ describe('Integration | Component | Step', function() {
 
   it('renders', async function() {
     await render(hbs`{{intro-js/step}}`);
+
     expect(this.$()).to.have.length(1);
   });
 
