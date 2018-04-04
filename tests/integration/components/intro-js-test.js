@@ -1,10 +1,5 @@
 import { expect } from 'chai';
-import {
-  describe,
-  it,
-  beforeEach,
-  afterEach
-} from 'mocha';
+import { describe, it, beforeEach, afterEach } from 'mocha';
 import { setupRenderingTest } from 'ember-mocha';
 import { render, waitUntil } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
