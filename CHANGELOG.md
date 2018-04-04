@@ -1,5 +1,27 @@
 # Change Log
 
+## [v2.4.0](https://github.com/PoslinskiNet/ember-introjs/tree/v2.4.0) (2018-04-04)
+[Full Changelog](https://github.com/PoslinskiNet/ember-introjs/compare/v2.3.0...v2.4.0)
+
+**Implemented enhancements:**
+
+- Ember 3.0 upgrade [\#62](https://github.com/PoslinskiNet/ember-introjs/pull/62) ([PoslinskiNet](https://github.com/PoslinskiNet))
+
+**Merged pull requests:**
+
+- Get rid of jQuery from the tests [\#74](https://github.com/PoslinskiNet/ember-introjs/pull/74) ([mikoscz](https://github.com/mikoscz))
+- Update broccoli-asset-rev to the latest version 🚀 [\#73](https://github.com/PoslinskiNet/ember-introjs/pull/73) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-cli-uglify to the latest version 🚀 [\#72](https://github.com/PoslinskiNet/ember-introjs/pull/72) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-resolver to the latest version 🚀 [\#71](https://github.com/PoslinskiNet/ember-introjs/pull/71) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-cli-chai to the latest version 🚀 [\#69](https://github.com/PoslinskiNet/ember-introjs/pull/69) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-sinon to the latest version 🚀 [\#67](https://github.com/PoslinskiNet/ember-introjs/pull/67) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-cli-fastboot to the latest version 🚀 [\#66](https://github.com/PoslinskiNet/ember-introjs/pull/66) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-resolver to the latest version 🚀 [\#63](https://github.com/PoslinskiNet/ember-introjs/pull/63) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-cli-babel to the latest version 🚀 [\#61](https://github.com/PoslinskiNet/ember-introjs/pull/61) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-cli-uglify to the latest version 🚀 [\#60](https://github.com/PoslinskiNet/ember-introjs/pull/60) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update eslint-plugin-node to the latest version 🚀 [\#56](https://github.com/PoslinskiNet/ember-introjs/pull/56) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-cli-mocha to the latest version 🚀 [\#55](https://github.com/PoslinskiNet/ember-introjs/pull/55) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
 ## [v2.3.0](https://github.com/PoslinskiNet/ember-introjs/tree/v2.3.0) (2018-02-03)
 [Full Changelog](https://github.com/PoslinskiNet/ember-introjs/compare/v2.2.1...v2.3.0)
 
