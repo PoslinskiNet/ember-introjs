@@ -24,42 +24,43 @@ const _checkExitCompleted = async() => {
 }
 
 /**
+* Skip the intro
+*/
+const introJSSkip = () => {
+  return click(document.querySelector('.introjs-skipbutton'));
+};
+
+/**
  * Goes to the next step of the intro
  */
 const introJSNext = async() => {
-  const button = document.querySelector('.introjs-nextbutton');
-
-  await click(button);
-  return await _checkNextCompleted();
+  await click(document.querySelector('.introjs-nextbutton'));
+  return _checkNextCompleted();
 };
 
 /**
  * Goes to the previous step of the intro
  */
 const introJSPrevious = async() => {
-  const button = document.querySelector('.introjs-prevbutton');
-
-  await click(button);
-  return await _checkNextCompleted();
+  await click(document.querySelector('.introjs-prevbutton'));
+  return _checkNextCompleted();
 };
 
 /**
  * Exits the intro
  */
 const introJSExit = async() => {
-  const button = document.querySelector('.introjs-skipbutton');
-
-  await click(button);
-  return await _checkExitCompleted();
+  await click(document.querySelector('.introjs-skipbutton'));
+  return _checkExitCompleted();
 };
 
 /**
  * Force exit of the intro
  */
-const introJSEnsureClosed = async() => {
+const introJSEnsureClosed = () => {
   if (introJS) {
     introJS.exit();
-    return await _checkExitCompleted();
+    return _checkExitCompleted();
   }
 
   return;
@@ -98,6 +99,7 @@ IntroJSComponent.reopen({
 });
 
 export {
+  introJSSkip,
   introJSNext,
   introJSPrevious,
   introJSExit,

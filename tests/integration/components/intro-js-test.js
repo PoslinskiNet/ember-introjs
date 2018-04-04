@@ -6,8 +6,9 @@ import {
   afterEach
 } from 'mocha';
 import { setupRenderingTest } from 'ember-mocha';
-import { render, click, waitUntil } from '@ember/test-helpers';
+import { render, waitUntil } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
+import { introJSNext, introJSSkip } from './../../helpers/ember-introjs'
 import{ assert, assertions, reset, check } from './../../helpers/chai-assertions';
 
 describe('Integration | Component | intro js', function() {
@@ -51,11 +52,14 @@ describe('Integration | Component | intro js', function() {
   describe('start-if', function(){
     it('when start-if is falsy does not render the introjs component', async function(){
       assertions(1);
+
       this.set('startIf', false);
 
       await render(hbs`{{intro-js steps=steps start-if=startIf}}`);
 
-      assert(expect(document.querySelector('.introjs-overlay')).to.equal(null));
+      assert(() => {
+        expect(document.querySelector('.introjs-overlay')).to.equal(null)
+      });
     });
 
     it('when start-if changes to truthy renders introJS', async function(){
@@ -64,10 +68,16 @@ describe('Integration | Component | intro js', function() {
       this.set('startIf', false);
 
       await render(hbs`{{intro-js steps=steps start-if=startIf}}`);
-      assert(expect(document.querySelector('.introjs-overlay')).to.equal(null));
+
+      assert(() => {
+        expect(document.querySelector('.introjs-overlay')).to.equal(null)
+      });
 
       this.set('startIf', true);
-      assert(expect(document.querySelector('.introjs-overlay')).to.be.ok);
+
+      assert(() => {
+        expect(document.querySelector('.introjs-overlay')).to.be.ok
+      });
     });
 
     it('when start-if changes to falsy hides introJS', async function(){
@@ -76,11 +86,14 @@ describe('Integration | Component | intro js', function() {
       this.set('startIf', true);
 
       await render(hbs`{{intro-js steps=steps start-if=startIf}}`);
+
       this.set('startIf', false);
 
       await waitUntil(() => document.querySelectorAll('.introjs-overlay').length === 0);
 
-      assert(expect(document.querySelector('.introjs-overlay')).to.equal(null));
+      assert(() => {
+        expect(document.querySelector('.introjs-overlay')).to.equal(null)
+      });
     });
   });
 
@@ -89,28 +102,34 @@ describe('Integration | Component | intro js', function() {
       assertions(2);
 
       this.set('myExit', (step) => {
-        assert(expect(step).to.equal(this.steps[0]));
+        assert(() => {
+          expect(step).to.equal(this.steps[0])
+        });
       })
 
       await render(hbs`{{intro-js steps=steps start-if=true on-exit=(action myExit)}}`);
 
-      await click(document.querySelector('.introjs-skipbutton'));
+      await introJSSkip();
     });
   });
 
-  // describe('when completing', function(){
-  //   it('fires the on-complete action', async function(){
-  //     assertions(2);
-  //
-  //     this.set('myComplete', (step) => {
-  //       assert(expect(step).to.equal(this.steps[1]));
-  //     })
-  //
-  //     await render(hbs`{{intro-js steps=steps start-if=true on-complete=(action myComplete)}}`);
-  //
-  //     await click(document.querySelector('.introjs-skipbutton'));
-  //   });
-  // });
+  describe('when completing', function(){
+    it('fires the on-complete action', async function(){
+      assertions(1);
+
+      this.set('myComplete', (step) => {
+        assert(() => {
+          expect(step).to.equal(this.steps[1])
+        });
+      })
+
+      await render(hbs`{{intro-js steps=steps start-if=true on-complete=(action myComplete)}}`);
+
+      await introJSNext();
+
+      await introJSSkip();
+    });
+  });
 
   describe('when going to the next step', function(){
     it('fires the on-before-change action', async function(){
@@ -129,7 +148,7 @@ describe('Integration | Component | intro js', function() {
 
       await render(hbs`{{intro-js steps=steps start-if=true on-before-change=(action beforeChange)}}`);
 
-      await click(document.querySelector('.introjs-skipbutton'));
+      await introJSSkip();
     });
   });
 
@@ -149,7 +168,7 @@ describe('Integration | Component | intro js', function() {
 
       await render(hbs`{{intro-js steps=steps start-if=true on-after-change=(action afterChange)}}`);
 
-      await click(document.querySelector('.introjs-skipbutton'));
+      await introJSSkip();
     });
   });
 
@@ -169,7 +188,7 @@ describe('Integration | Component | intro js', function() {
 
       await render(hbs`{{intro-js steps=steps start-if=true on-change=(action onChange)}}`);
 
-      await click(document.querySelector('.introjs-skipbutton'));
+      await introJSSkip();
     });
   });
 });
