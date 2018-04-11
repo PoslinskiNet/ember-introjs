@@ -54,7 +54,7 @@
     "ember-try": "^0.2.23",
     "eslint-plugin-ember": "^5.0.0",
     "eslint-plugin-node": "^6.0.0",
-    "loader.js": "4.6.0",
+    "loader.js": "4.7.0",
     "sinon-chai": "3.0.0"
   },
   "fastbootDependencies": [
