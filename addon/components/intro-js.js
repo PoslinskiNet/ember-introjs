@@ -99,14 +99,14 @@ export default Component.extend({
         }
       }
 
-      options.steps = this.get('steps');
+      options.steps = this.steps;
 
       return options;
     }
   ),
 
   willDestroyElement() {
-    let intro = this.get('introJS');
+    let intro = this.introJS;
     if (intro) {
       intro.exit();
     }
@@ -115,11 +115,11 @@ export default Component.extend({
   },
 
   startIntroJS(){
-    if (!this.get('introJS')) {
+    if (!this.introJS) {
       this._setIntroJS(introJS());
     }
-    let intro = this.get('introJS');
-    let options = this.get('introJSOptions');
+    let intro = this.introJS;
+    let options = this.introJSOptions;
 
     if (this.get('start-if')){
       intro.setOptions(options);
@@ -134,7 +134,7 @@ export default Component.extend({
   },
 
   registerCallbacksWithIntroJS(){
-    let intro = this.get('introJS');
+    let intro = this.introJS;
 
     intro.onbeforechange(bind(this, this._onBeforeChange));
     intro.onchange(bind(this, this._onChange));
@@ -148,31 +148,31 @@ export default Component.extend({
   },
 
   _onBeforeChange(elementOfNewStep) {
-    let prevStep = this.get('currentStep');
-    this._setCurrentStep(this.get('introJS._currentStep'));
-    let nextStep = this.get('currentStep');
+    let prevStep = this.currentStep;
+    this._setCurrentStep(this.introJS._currentStep);
+    let nextStep = this.currentStep;
 
     this.sendAction('on-before-change', prevStep, nextStep, this, elementOfNewStep);
   },
 
   _onChange(targetElement) {
-    this.sendAction('on-change', this.get('currentStep'), this, targetElement);
+    this.sendAction('on-change', this.currentStep, this, targetElement);
   },
 
   _onAfterChange(targetElement){
-    this.sendAction('on-after-change', this.get('currentStep'), this, targetElement);
+    this.sendAction('on-after-change', this.currentStep, this, targetElement);
   },
 
   _onExit(){
-    this.sendAction('on-exit', this.get('currentStep'), this);
+    this.sendAction('on-exit', this.currentStep, this);
   },
 
   _onComplete() {
-    this.sendAction('on-complete', this.get('currentStep'));
+    this.sendAction('on-complete', this.currentStep);
   },
 
   _setCurrentStep(step){
-    let stepObject = A(this.get('steps')).objectAt(step);
+    let stepObject = A(this.steps).objectAt(step);
     this.set('currentStep', stepObject);
   }
 });
