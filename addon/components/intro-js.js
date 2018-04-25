@@ -141,6 +141,7 @@ export default Component.extend({
     intro.onafterchange(bind(this, this._onAfterChange));
     intro.oncomplete(bind(this, this._onComplete));
     intro.onexit(bind(this, this._onExit));
+    intro.onskip(bind(this, this._onSkip));
   },
 
   _setIntroJS(introJS){
@@ -165,6 +166,10 @@ export default Component.extend({
 
   _onExit(){
     this.sendAction('on-exit', this.currentStep, this);
+  },
+
+  _onSkip(){
+    this.sendAction('on-skip', this.currentStep, this);
   },
 
   _onComplete() {

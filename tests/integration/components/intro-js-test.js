@@ -94,7 +94,7 @@ describe('Integration | Component | intro js', function() {
 
   describe('when exiting', function(){
     it('fires the on-exit action', async function(){
-      assertions(2);
+      assertions(3);
 
       this.set('myExit', (step) => {
         assert(() => {
@@ -103,6 +103,22 @@ describe('Integration | Component | intro js', function() {
       })
 
       await render(hbs`{{intro-js steps=steps start-if=true on-exit=(action myExit)}}`);
+
+      await introJSSkip();
+    });
+  });
+
+  describe('when skiping', function(){
+    it('fires the on-skip action', async function(){
+      assertions(1);
+
+      this.set('onSkip', (step) => {
+        assert(() => {
+          expect(step).to.equal(this.steps[0])
+        });
+      })
+
+      await render(hbs`{{intro-js steps=steps start-if=true on-skip=(action onSkip)}}`);
 
       await introJSSkip();
     });
