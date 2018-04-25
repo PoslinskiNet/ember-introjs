@@ -11,14 +11,14 @@ describe('Unit | Component | Step', function() {
     it('does render with 0 as default', function(){
       this.render();
 
-      expect(this.$().attr('data-step')).to.equal('0');
+      expect(this.subject().element.getAttribute('data-step')).to.equal('0');
     });
 
     it('does render with a custom value', function(){
       this.subject({ step: 4 });
       this.render();
 
-      expect(this.$().attr('data-step')).to.equal('4');
+      expect(this.subject().element.getAttribute('data-step')).to.equal('4');
     });
   });
 
@@ -27,7 +27,7 @@ describe('Unit | Component | Step', function() {
       this.subject({ intro: 'My text' });
       this.render();
 
-      expect(this.$().attr('data-intro')).to.equal('My text');
+      expect(this.subject().element.getAttribute('data-intro')).to.equal('My text');
     });
   });
 
@@ -36,7 +36,7 @@ describe('Unit | Component | Step', function() {
       this.subject({ tooltipClass: 'my-class' });
       this.render();
 
-      expect(this.$().attr('data-tooltipClass')).to.equal('my-class');
+      expect(this.subject().element.getAttribute('data-tooltipClass')).to.equal('my-class');
     });
   });
 
@@ -45,7 +45,7 @@ describe('Unit | Component | Step', function() {
       this.subject({ highlightClass: 'my-class' });
       this.render();
 
-      expect(this.$().attr('data-highlightClass')).to.equal('my-class');
+      expect(this.subject().element.getAttribute('data-highlightClass')).to.equal('my-class');
     });
   });
 
@@ -53,14 +53,14 @@ describe('Unit | Component | Step', function() {
     it('does render with bottom as default', function(){
       this.render();
 
-      expect(this.$().attr('data-position')).to.equal('bottom');
+      expect(this.subject().element.getAttribute('data-position')).to.equal('bottom');
     });
 
     it('does render with a custom value', function(){
       this.subject({ position: 'top' });
       this.render();
 
-      expect(this.$().attr('data-position')).to.equal('top');
+      expect(this.subject().element.getAttribute('data-position')).to.equal('top');
     });
   });
 
@@ -69,7 +69,7 @@ describe('Unit | Component | Step', function() {
       this.subject({ hint: 'My text' });
       this.render();
 
-      expect(this.$().attr('data-hint')).to.equal('My text');
+      expect(this.subject().element.getAttribute('data-hint')).to.equal('My text');
     });
   });
 
@@ -77,14 +77,14 @@ describe('Unit | Component | Step', function() {
     it('does render with top-middle as default', function(){
       this.render();
 
-      expect(this.$().attr('data-hintPosition')).to.equal('top-middle');
+      expect(this.subject().element.getAttribute('data-hintPosition')).to.equal('top-middle');
     });
 
     it('does render with a custom value', function(){
       this.subject({ hintPosition: 'top' });
       this.render();
 
-      expect(this.$().attr('data-hintPosition')).to.equal('top');
+      expect(this.subject().element.getAttribute('data-hintPosition')).to.equal('top');
     });
   });
 });
