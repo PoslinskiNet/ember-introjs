@@ -49,14 +49,12 @@
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-mocha": "github:emberjs/ember-mocha#587703232cc761c17a07bbeaad65ee1a5852423a",
     "ember-resolver": "4.5.5",
-    "ember-sinon": "2.1.0",
     "ember-source": "^3.1.1",
     "ember-source-channel-url": "^1.1.0",
     "ember-try": "^0.2.23",
     "eslint-plugin-ember": "^5.0.0",
     "eslint-plugin-node": "^6.0.1",
-    "loader.js": "4.7.0",
-    "sinon-chai": "3.0.0"
+    "loader.js": "4.7.0"
   },
   "fastbootDependencies": [
     "introJs"
