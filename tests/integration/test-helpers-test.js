@@ -1,5 +1,5 @@
 import { module, test } from 'qunit';
-import { visit } from '@ember/test-helpers';
+import { visit, find } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import {
   introJSNext,
@@ -28,7 +28,7 @@ module('test helpers', function(hooks) {
   test('can use the exit helper', async function(assert){
     await introJSExit();
 
-    assert.equal(document.querySelector('.introjs-overlay'), null);
+    assert.equal(find('.introjs-overlay'), null);
   });
 
   test('can use the previous helper', async function(assert){

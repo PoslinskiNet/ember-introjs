@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import hbs from 'htmlbars-inline-precompile';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, waitUntil } from '@ember/test-helpers';
+import { render, waitUntil, find, findAll } from '@ember/test-helpers';
 import { introJSNext, introJSSkip } from './../../helpers/ember-introjs'
 
 module('Integration | Component | intro js', function(hooks) {
@@ -47,7 +47,7 @@ module('Integration | Component | intro js', function(hooks) {
 
       await render(hbs`{{intro-js steps=steps start-if=startIf}}`);
 
-      assert.equal(document.querySelector('.introjs-overlay'), null);
+      assert.equal(find('.introjs-overlay'), null);
     });
 
     test('when start-if changes to truthy renders introJS', async function(assert) {
@@ -57,7 +57,7 @@ module('Integration | Component | intro js', function(hooks) {
 
       await render(hbs`{{intro-js steps=steps start-if=startIf}}`);
 
-      assert.equal(document.querySelector('.introjs-overlay'), null);
+      assert.equal(find('.introjs-overlay'), null);
 
       this.set('startIf', true);
 
@@ -74,9 +74,9 @@ module('Integration | Component | intro js', function(hooks) {
 
       this.set('startIf', false);
 
-      await waitUntil(() => document.querySelectorAll('.introjs-overlay').length === 0);
+      await waitUntil(() => findAll('.introjs-overlay').length === 0);
 
-      assert.equal(document.querySelector('.introjs-overlay'), null);
+      assert.equal(find('.introjs-overlay'), null);
     });
   });
 
