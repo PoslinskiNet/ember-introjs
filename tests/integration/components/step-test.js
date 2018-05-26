@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
-import { render, find } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import { setupRenderingTest } from 'ember-qunit';
+import { render, find } from '@ember/test-helpers';
 
 module('Integration | Component | Step', function(hooks) {
   setupRenderingTest(hooks);

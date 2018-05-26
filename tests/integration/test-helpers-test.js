@@ -1,12 +1,12 @@
+import { module, test } from 'qunit';
+import { visit } from '@ember/test-helpers';
+import { setupApplicationTest } from 'ember-qunit';
 import {
   introJSNext,
   introJSPrevious,
   introJSExit,
   introJSEnsureClosed,
   introJSCurrentStep } from './../helpers/ember-introjs';
-import { module, test } from 'qunit';
-import { visit } from '@ember/test-helpers';
-import { setupApplicationTest } from 'ember-qunit';
 
 module('test helpers', function(hooks) {
   setupApplicationTest(hooks);
