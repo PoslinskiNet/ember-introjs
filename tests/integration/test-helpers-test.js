@@ -4,38 +4,37 @@ import {
   introJSExit,
   introJSEnsureClosed,
   introJSCurrentStep } from './../helpers/ember-introjs';
-import { expect } from 'chai';
-import { describe, it, beforeEach, afterEach } from 'mocha';
+import { module, test } from 'qunit';
 import { visit } from '@ember/test-helpers';
-import { setupApplicationTest } from 'ember-mocha';
+import { setupApplicationTest } from 'ember-qunit';
 
-describe('test helpers', function() {
-  setupApplicationTest();
+module('test helpers', function(hooks) {
+  setupApplicationTest(hooks);
 
-  beforeEach(async function(){
+  hooks.beforeEach(async function() {
     await visit('/');
   });
 
-  afterEach(async function(){
+  hooks.afterEach(async function() {
     return await introJSEnsureClosed();
-  });
+  })
 
-  it('can use the next helper', async function(){
+  test('can use the next helper', async function(assert) {
     await introJSNext();
 
-    expect(introJSCurrentStep().intro).to.equal('Step 2!');
+    assert.equal(introJSCurrentStep().intro, 'Step 2!');
   });
 
-  it('can use the exit helper', async function(){
+  test('can use the exit helper', async function(assert){
     await introJSExit();
 
-    expect(document.querySelector('.introjs-overlay')).to.equal(null);
+    assert.equal(document.querySelector('.introjs-overlay'), null);
   });
 
-  it('can use the previous helper', async function(){
+  test('can use the previous helper', async function(assert){
     await introJSNext();
     await introJSPrevious();
 
-    expect(introJSCurrentStep().intro).to.equal('Step 1!');
+    assert.equal(introJSCurrentStep().intro, 'Step 1!');
   });
-});
+})
