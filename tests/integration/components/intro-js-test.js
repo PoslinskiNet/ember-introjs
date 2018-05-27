@@ -128,11 +128,10 @@ module('Integration | Component | intro js', function(hooks) {
     test('fires the on-before-change action', async function(assert) {
       assert.expect(4);
       this.set('beforeChange', (currentStep, nextStep, component, step2) => {
-        let introJsComponent = this.owner.lookup('component:intro-js');
 
         assert.equal(currentStep, this.steps[0]);
         assert.equal(nextStep, this.steps[1]);
-        assert.equal(component, introJsComponent);
+        assert.notEqual(component.introJs, undefined);
         assert.equal(step2, this.steps[0].intro);
       });
 
@@ -144,10 +143,9 @@ module('Integration | Component | intro js', function(hooks) {
     test('fires the on-after-change action', async function(assert) {
       assert.expect(3);
       this.set('afterChange', (nextStep, component, step2) => {
-        let introJsComponent = this.owner.lookup('component:intro-js');
 
         assert.equal(nextStep, this.steps[1]);
-        assert.equal(component, introJsComponent);
+        assert.notEqual(component.introJs, undefined);
         assert.equal(step2, this.steps[0].intro);
       });
 
@@ -159,10 +157,9 @@ module('Integration | Component | intro js', function(hooks) {
     test('fires the on-change action', async function(assert) {
       assert.expect(3);
       this.set('onChange', (nextStep, component, step2) => {
-        let introJsComponent = this.owner.lookup('component:intro-js');
 
         assert.equal(nextStep, this.steps[1]);
-        assert.equal(component, introJsComponent);
+        assert.notEqual(component.introJs, undefined);
         assert.equal(step2, this.steps[0].intro);
       });
 
