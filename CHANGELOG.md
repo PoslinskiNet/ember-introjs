@@ -1,5 +1,23 @@
 # Change Log
 
+## [2.0.0](https://github.com/PoslinskiNet/ember-introjs/tree/2.0.0) (2018-05-31)
+[Full Changelog](https://github.com/PoslinskiNet/ember-introjs/compare/v2.4.0...2.0.0)
+
+**Implemented enhancements:**
+
+- Closure actions instead of normal actions? [\#26](https://github.com/PoslinskiNet/ember-introjs/issues/26)
+- 3.1 upgrade [\#78](https://github.com/PoslinskiNet/ember-introjs/pull/78) ([PoslinskiNet](https://github.com/PoslinskiNet))
+
+**Merged pull requests:**
+
+- Make tests green again [\#91](https://github.com/PoslinskiNet/ember-introjs/pull/91) ([mikoscz](https://github.com/mikoscz))
+- Update ember-cli-babel to the latest version 🚀 [\#90](https://github.com/PoslinskiNet/ember-introjs/pull/90) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-cli-babel to the latest version 🚀 [\#88](https://github.com/PoslinskiNet/ember-introjs/pull/88) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update sinon-chai to the latest version 🚀 [\#87](https://github.com/PoslinskiNet/ember-introjs/pull/87) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-cli-dependency-checker to the latest version 🚀 [\#86](https://github.com/PoslinskiNet/ember-introjs/pull/86) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update loader.js to the latest version 🚀 [\#77](https://github.com/PoslinskiNet/ember-introjs/pull/77) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-cli to the latest version 🚀 [\#76](https://github.com/PoslinskiNet/ember-introjs/pull/76) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
 ## [v2.4.0](https://github.com/PoslinskiNet/ember-introjs/tree/v2.4.0) (2018-04-04)
 [Full Changelog](https://github.com/PoslinskiNet/ember-introjs/compare/v2.3.0...v2.4.0)
 
