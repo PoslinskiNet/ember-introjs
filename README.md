@@ -199,8 +199,9 @@ import './helpers/ember-introjs';
 
 ### Running tests
 
-* `ember test`
-* `ember test --server`
+* `ember test` – Runs the test suite on the current Ember version
+* `ember test --server` – Runs the test suite in "watch mode"
+* `ember try:each` – Runs the test suite against multiple Ember versions
 
 ### Running the dummy application
 

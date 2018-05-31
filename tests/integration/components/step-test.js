@@ -1,8 +1,9 @@
-import { expect } from 'chai';
 import { describe, it } from 'mocha';
 import { setupRenderingTest } from 'ember-mocha';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
+import { find } from '@ember/test-helpers';
+import { expect } from 'chai';
 
 describe('Integration | Component | Step', function() {
   setupRenderingTest();
@@ -10,7 +11,7 @@ describe('Integration | Component | Step', function() {
   it('renders', async function() {
     await render(hbs`{{intro-js/step}}`);
 
-    expect(this.$()).to.have.length(1);
+    expect(find('div[data-step]').getAttribute('data-step')).to.equal("0");
   });
 
   it('renders step as a block', async function() {
@@ -20,6 +21,6 @@ describe('Integration | Component | Step', function() {
       {{/intro-js/step}}
     `);
 
-    expect(this.$()).to.have.length(1);
+    expect(find('div[data-step]').getAttribute('data-step')).to.equal("0");
   });
 });
