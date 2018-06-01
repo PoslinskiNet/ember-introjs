@@ -1,7 +1,7 @@
 # Change Log
 
-## [2.0.0](https://github.com/PoslinskiNet/ember-introjs/tree/2.0.0) (2018-05-31)
-[Full Changelog](https://github.com/PoslinskiNet/ember-introjs/compare/v2.4.0...2.0.0)
+## [v2.5.0](https://github.com/PoslinskiNet/ember-introjs/tree/v2.5.0) (2018-05-31)
+[Full Changelog](https://github.com/PoslinskiNet/ember-introjs/compare/v2.4.0...v2.5.0)
 
 **Implemented enhancements:**
 
