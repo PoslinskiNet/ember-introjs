@@ -26,13 +26,13 @@
   "dependencies": {
     "broccoli-funnel": "2.0.1",
     "broccoli-merge-trees": "3.0.0",
-    "ember-cli-babel": "6.12.0",
+    "ember-cli-babel": "6.14.1",
     "intro.js": "2.9.3"
   },
   "devDependencies": {
     "broccoli-asset-rev": "2.7.0",
     "ember-cli": "~3.1.0",
-    "ember-cli-dependency-checker": "2.1.0",
+    "ember-cli-dependency-checker": "2.1.1",
     "ember-cli-eslint": "4.2.3",
     "ember-cli-fastboot": "1.1.4-beta.1",
     "ember-cli-htmlbars": "2.0.3",
