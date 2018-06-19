@@ -48,7 +48,7 @@
     "ember-load-initializers": "1.0.0",
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-mocha": "github:emberjs/ember-mocha#587703232cc761c17a07bbeaad65ee1a5852423a",
-    "ember-resolver": "4.5.5",
+    "ember-resolver": "4.5.6",
     "ember-source": "^3.1.1",
     "ember-source-channel-url": "^1.1.0",
     "ember-try": "^0.2.23",
