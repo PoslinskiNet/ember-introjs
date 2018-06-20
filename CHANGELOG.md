@@ -1,5 +1,16 @@
 # Change Log
 
+## [v2.5.1](https://github.com/PoslinskiNet/ember-introjs/tree/v2.5.1) (2018-06-19)
+[Full Changelog](https://github.com/PoslinskiNet/ember-introjs/compare/v2.5.0...v2.5.1)
+
+**Implemented enhancements:**
+
+- Fix pods support [\#95](https://github.com/PoslinskiNet/ember-introjs/pull/95) ([PoslinskiNet](https://github.com/PoslinskiNet))
+
+**Merged pull requests:**
+
+- Update ember-resolver to the latest version 🚀 [\#93](https://github.com/PoslinskiNet/ember-introjs/pull/93) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
 ## [v2.5.0](https://github.com/PoslinskiNet/ember-introjs/tree/v2.5.0) (2018-05-31)
 [Full Changelog](https://github.com/PoslinskiNet/ember-introjs/compare/v2.4.0...v2.5.0)
 
