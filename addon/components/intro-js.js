@@ -182,7 +182,7 @@ export default Component.extend({
   },
 
   _getNextStep() {
-    return this._getStep(this.get('introJS._currentStep')+1);
+    return this._getStep(this.get('introJS._currentStep') + 1);
   },
 
   _getStep(step) {
