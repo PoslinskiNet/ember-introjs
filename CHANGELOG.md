@@ -1,5 +1,17 @@
 # Change Log
 
+## [v2.6.0](https://github.com/PoslinskiNet/ember-introjs/tree/v2.6.0) (2018-07-04)
+[Full Changelog](https://github.com/PoslinskiNet/ember-introjs/compare/v2.5.1...v2.6.0)
+
+**Fixed bugs:**
+
+- Error: Compile Error: intro-js is not a helper [\#94](https://github.com/PoslinskiNet/ember-introjs/issues/94)
+
+**Merged pull requests:**
+
+- Update ember-cli to the latest version 🚀 [\#97](https://github.com/PoslinskiNet/ember-introjs/pull/97) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Introduce QUnit specs for 3.1 Ember [\#89](https://github.com/PoslinskiNet/ember-introjs/pull/89) ([Rxbsxn](https://github.com/Rxbsxn))
+
 ## [v2.5.1](https://github.com/PoslinskiNet/ember-introjs/tree/v2.5.1) (2018-06-19)
 [Full Changelog](https://github.com/PoslinskiNet/ember-introjs/compare/v2.5.0...v2.5.1)
 
