@@ -119,12 +119,12 @@ module('Integration | Component | intro js', function(hooks) {
 
   module('when going to the next step', function() {
     test('fires the on-before-change action', async function(assert) {
-      assert.expect(3);
-      this.set('beforeChange', (currentStep, nextStep, component) => {
+      assert.expect(4);
+      this.set('beforeChange', (currentStep, nextStep, component, step2div) => {
         assert.equal(currentStep, this.steps[0]);
         assert.equal(nextStep, this.steps[1]);
         assert.notEqual(component.introJS, undefined);
-        // assert.equal(step2, this.steps[0].intro);
+        assert.ok(step2div);
       });
 
       await render(hbs`{{intro-js steps=steps start-if=true on-before-change=(action beforeChange)}}`);
@@ -133,12 +133,12 @@ module('Integration | Component | intro js', function(hooks) {
     });
 
     test('fires the on-after-change action', async function(assert) {
-      assert.expect(2);
-      this.set('afterChange', (nextStep, component) => {
+      assert.expect(3);
+      this.set('afterChange', (nextStep, component, step2div) => {
 
         assert.equal(nextStep, this.steps[1]);
         assert.notEqual(component.introJS, undefined);
-        // assert.equal(step2, this.steps[0].intro);
+        assert.ok(step2div);
       });
 
       await render(hbs`{{intro-js steps=steps start-if=true on-after-change=(action afterChange)}}`);
@@ -147,12 +147,12 @@ module('Integration | Component | intro js', function(hooks) {
     });
 
     test('fires the on-change action', async function(assert) {
-      assert.expect(2);
-      this.set('onChange', (nextStep, component) => {
+      assert.expect(3);
+      this.set('onChange', (nextStep, component, step2div) => {
 
         assert.equal(nextStep, this.steps[1]);
         assert.notEqual(component.introJS, undefined);
-        // assert.equal(step2, this.steps[0].intro);
+        assert.ok(step2div);
       });
 
       await render(hbs`{{intro-js steps=steps start-if=true on-change=(action onChange)}}`);
