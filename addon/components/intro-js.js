@@ -150,18 +150,19 @@ export default Component.extend({
 
   _onBeforeChange(elementOfNewStep) {
     let prevStep = this.get('currentStep');
-    this._setCurrentStep(this.get('introJS._currentStep'));
-    let nextStep = this.get('currentStep');
+    let currentStepIndex = this.get('introJS._currentStep');
+    this._setCurrentStep(currentStepIndex);
+    let nextStep = this._getStep(++currentStepIndex);
 
     this.sendAction('on-before-change', prevStep, nextStep, this, elementOfNewStep);
   },
 
   _onChange(targetElement) {
-    this.sendAction('on-change', this.get('currentStep'), this, targetElement);
+    this.sendAction('on-change', this._getNextStep(), this, targetElement);
   },
 
   _onAfterChange(targetElement){
-    this.sendAction('on-after-change', this.get('currentStep'), this, targetElement);
+    this.sendAction('on-after-change', this._getNextStep(), this, targetElement);
   },
 
   _onExit(){
@@ -177,7 +178,14 @@ export default Component.extend({
   },
 
   _setCurrentStep(step){
-    let stepObject = A(this.get('steps')).objectAt(step);
-    this.set('currentStep', stepObject);
+    this.set('currentStep', this._getStep(step));
+  },
+
+  _getNextStep() {
+    return this._getStep(this.get('introJS._currentStep') + 1);
+  },
+
+  _getStep(step) {
+    return A(this.get('steps')).objectAt(step);
   }
 });

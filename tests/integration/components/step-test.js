@@ -1,26 +1,23 @@
-import { describe, it } from 'mocha';
-import { setupRenderingTest } from 'ember-mocha';
-import { render } from '@ember/test-helpers';
+import { module, test } from 'qunit';
 import hbs from 'htmlbars-inline-precompile';
-import { find } from '@ember/test-helpers';
-import { expect } from 'chai';
+import { setupRenderingTest } from 'ember-qunit';
+import { render, find } from '@ember/test-helpers';
 
-describe('Integration | Component | Step', function() {
-  setupRenderingTest();
+module('Integration | Component | Step', function(hooks) {
+  setupRenderingTest(hooks);
 
-  it('renders', async function() {
+  test('renders', async function(assert) {
     await render(hbs`{{intro-js/step}}`);
 
-    expect(find('div[data-step]').getAttribute('data-step')).to.equal("0");
+    assert.equal(find('div[data-step]').getAttribute('data-step'), '0');
   });
 
-  it('renders step as a block', async function() {
+  test('renders step as a block', async function(assert) {
     await render(hbs`
-      {{#intro-js/step}}
-        Step content
-      {{/intro-js/step}}
-    `);
-
-    expect(find('div[data-step]').getAttribute('data-step')).to.equal("0");
+          {{#intro-js/step}}
+            Step content
+          {{/intro-js/step}}
+          `);
+    assert.equal(find('div[data-step]').getAttribute('data-step'), '0');
   });
-});
+})
