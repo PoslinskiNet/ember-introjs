@@ -1,0 +1,8 @@
+{
+  "files": {
+    "included": [
+      "addon/components/*.js"
+    ],
+    "excluded": []
+  }
+}
