@@ -214,7 +214,7 @@ For more information on using ember-cli, visit [http://www.ember-cli.com/](http:
 
 See the LICENSE file included in this repository.
 
-Keep in mind that if you like to use Intro.JS for commercial use, you should buy a commercial license. You can find more information on the link bellow:
+Keep in mind that if you like to use Intro.JS for commercial use, you should buy a commercial license. You can find more information on the intro.js project site: https://introjs.com/#commercial
 
 <!-- Links -->
 [intro-js]: https://github.com/usablica/intro.js/
