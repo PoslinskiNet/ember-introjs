@@ -1,5 +1,29 @@
 # Change Log
 
+## [v2.6.1](https://github.com/PoslinskiNet/ember-introjs/tree/v2.6.1) (2018-08-04)
+[Full Changelog](https://github.com/PoslinskiNet/ember-introjs/compare/v2.6.0...v2.6.1)
+
+**Implemented enhancements:**
+
+- Codecov setup & 3.12 upgrade [\#98](https://github.com/PoslinskiNet/ember-introjs/pull/98) ([PoslinskiNet](https://github.com/PoslinskiNet))
+
+**Closed issues:**
+
+- Fixed Tooltip [\#102](https://github.com/PoslinskiNet/ember-introjs/issues/102)
+- Access DOM from another template [\#101](https://github.com/PoslinskiNet/ember-introjs/issues/101)
+- Error during ember install [\#99](https://github.com/PoslinskiNet/ember-introjs/issues/99)
+
+**Merged pull requests:**
+
+- Update ember-cli-inject-live-reload to the latest version 🚀 [\#112](https://github.com/PoslinskiNet/ember-introjs/pull/112) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-cli-htmlbars to the latest version 🚀 [\#111](https://github.com/PoslinskiNet/ember-introjs/pull/111) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-cli-htmlbars to the latest version 🚀 [\#109](https://github.com/PoslinskiNet/ember-introjs/pull/109) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-cli-inject-live-reload to the latest version 🚀 [\#108](https://github.com/PoslinskiNet/ember-introjs/pull/108) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-resolver to the latest version 🚀 [\#107](https://github.com/PoslinskiNet/ember-introjs/pull/107) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-cli-babel to the latest version 🚀 [\#106](https://github.com/PoslinskiNet/ember-introjs/pull/106) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update eslint-plugin-node to the latest version 🚀 [\#105](https://github.com/PoslinskiNet/ember-introjs/pull/105) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-source to the latest version 🚀 [\#103](https://github.com/PoslinskiNet/ember-introjs/pull/103) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
 ## [v2.6.0](https://github.com/PoslinskiNet/ember-introjs/tree/v2.6.0) (2018-07-04)
 [Full Changelog](https://github.com/PoslinskiNet/ember-introjs/compare/v2.5.1...v2.6.0)
 
