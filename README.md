@@ -93,7 +93,7 @@ Then pass the name of the action in the handlebars helper that renders
 the component below.
 
 ```handlebars
-{{intro-js steps=steps start-if=true on-before-change="introBeforeChange"}}
+{{intro-js steps=steps start-if=true on-before-change=(action "introBeforeChange")}}
 ```
 
 ### on-before-change (currentStep, nextStep, introJSComponent, nextElement)
