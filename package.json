@@ -18,19 +18,20 @@
   },
   "scripts": {
     "build": "ember build",
+    "lint:hbs": "ember-template-lint .",
     "lint:js": "eslint .",
-    "start": "ember server",
+    "start": "ember serve",
     "test": "ember test",
     "test:all": "ember try:each"
   },
   "dependencies": {
     "broccoli-funnel": "2.0.1",
-    "broccoli-merge-trees": "3.0.0",
+    "broccoli-merge-trees": "3.0.1",
     "ember-cli-babel": "6.16.0",
     "intro.js": "2.9.3"
   },
   "devDependencies": {
-    "broccoli-asset-rev": "2.7.0",
+    "broccoli-asset-rev": "3.0.0",
     "ember-cli": "~3.3.0",
     "ember-cli-dependency-checker": "3.0.0",
     "ember-cli-eslint": "4.2.3",
@@ -49,6 +50,7 @@
     "ember-resolver": "5.0.1",
     "ember-source": "~3.3.0",
     "ember-source-channel-url": "^1.1.0",
+    "ember-template-lint": "^0.8.23",
     "ember-try": "^0.2.23",
     "eslint-plugin-ember": "^5.0.0",
     "eslint-plugin-node": "^7.0.0",
