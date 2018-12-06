@@ -6,7 +6,7 @@ const Funnel = require('broccoli-funnel');
 const mergeTrees = require('broccoli-merge-trees');
 
 module.exports = {
-  name: 'ember-introjs',
+  name: require('./package').name,
 
   included(app) {
     this._super.included(app);
@@ -31,5 +31,5 @@ module.exports = {
     });
 
     return tree ? new mergeTrees([tree, introJsTree]) : introJsTree;
-  },
-};
+  }
+}
