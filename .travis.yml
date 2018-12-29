@@ -19,7 +19,13 @@ env:
   global:
     # See https://git.io/vdao3 for details.
     - JOBS=1
-  
+
+branches:
+  only:
+    - master
+    # npm version tags
+    - /^v\d+\.\d+\.\d+/
+
 jobs:
   fail_fast: true
   allow_failures:
@@ -31,18 +37,19 @@ jobs:
     - stage: "Tests"
       name: "Tests"
       script:
+        # - npm run lint:hbs
         - npm run lint:js
         - npm test
 
     # we recommend new addons test the current and previous LTS
     # as well as latest stable release (bonus points to beta/canary)
     - stage: "Additional Tests"
-      env: EMBER_TRY_SCENARIO=ember-lts-2.12
-    - env: EMBER_TRY_SCENARIO=ember-lts-2.16
+      env: EMBER_TRY_SCENARIO=ember-lts-2.16
     - env: EMBER_TRY_SCENARIO=ember-lts-2.18
     - env: EMBER_TRY_SCENARIO=ember-release
     - env: EMBER_TRY_SCENARIO=ember-beta
     - env: EMBER_TRY_SCENARIO=ember-canary
+    - env: EMBER_TRY_SCENARIO=ember-default-with-jquery
 
 before_install:
   - npm config set spin false
