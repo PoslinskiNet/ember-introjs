@@ -1,5 +1,39 @@
 # Change Log
 
+## [v2.6.2](https://github.com/PoslinskiNet/ember-introjs/tree/v2.6.2) (2018-12-29)
+[Full Changelog](https://github.com/PoslinskiNet/ember-introjs/compare/v2.6.1...v2.6.2)
+
+**Implemented enhancements:**
+
+- Ember 3.6 upgrade [\#141](https://github.com/PoslinskiNet/ember-introjs/pull/141) ([PoslinskiNet](https://github.com/PoslinskiNet))
+- Fix travis [\#117](https://github.com/PoslinskiNet/ember-introjs/pull/117) ([PoslinskiNet](https://github.com/PoslinskiNet))
+- Added missing link to commercial license page [\#113](https://github.com/PoslinskiNet/ember-introjs/pull/113) ([gandalfar](https://github.com/gandalfar))
+
+**Merged pull requests:**
+
+- Update ember-cli-htmlbars-inline-precompile to the latest version 🚀 [\#145](https://github.com/PoslinskiNet/ember-introjs/pull/145) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-cli-babel to the latest version 🚀 [\#144](https://github.com/PoslinskiNet/ember-introjs/pull/144) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-cli-babel to the latest version 🚀 [\#142](https://github.com/PoslinskiNet/ember-introjs/pull/142) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update broccoli-merge-trees to the latest version 🚀 [\#140](https://github.com/PoslinskiNet/ember-introjs/pull/140) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-cli-htmlbars-inline-precompile to the latest version 🚀 [\#137](https://github.com/PoslinskiNet/ember-introjs/pull/137) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-cli-babel to the latest version 🚀 [\#136](https://github.com/PoslinskiNet/ember-introjs/pull/136) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-load-initializers to the latest version 🚀 [\#135](https://github.com/PoslinskiNet/ember-introjs/pull/135) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update eslint-plugin-node to the latest version 🚀 [\#134](https://github.com/PoslinskiNet/ember-introjs/pull/134) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-cli-htmlbars-inline-precompile to the latest version 🚀 [\#132](https://github.com/PoslinskiNet/ember-introjs/pull/132) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-cli-qunit to the latest version 🚀 [\#131](https://github.com/PoslinskiNet/ember-introjs/pull/131) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-source to the latest version 🚀 [\#130](https://github.com/PoslinskiNet/ember-introjs/pull/130) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-cli-htmlbars-inline-precompile to the latest version 🚀 [\#129](https://github.com/PoslinskiNet/ember-introjs/pull/129) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-cli-htmlbars to the latest version 🚀 [\#128](https://github.com/PoslinskiNet/ember-introjs/pull/128) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-cli-babel to the latest version 🚀 [\#126](https://github.com/PoslinskiNet/ember-introjs/pull/126) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-cli-babel to the latest version 🚀 [\#125](https://github.com/PoslinskiNet/ember-introjs/pull/125) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update qunit-dom to the latest version 🚀 [\#124](https://github.com/PoslinskiNet/ember-introjs/pull/124) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-cli-fastboot to the latest version 🚀 [\#122](https://github.com/PoslinskiNet/ember-introjs/pull/122) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-try to the latest version 🚀 [\#121](https://github.com/PoslinskiNet/ember-introjs/pull/121) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-cli-babel to the latest version 🚀 [\#120](https://github.com/PoslinskiNet/ember-introjs/pull/120) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-source to the latest version 🚀 [\#119](https://github.com/PoslinskiNet/ember-introjs/pull/119) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-cli-babel to the latest version 🚀 [\#118](https://github.com/PoslinskiNet/ember-introjs/pull/118) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- docs: use action helper in example [\#114](https://github.com/PoslinskiNet/ember-introjs/pull/114) ([knownasilya](https://github.com/knownasilya))
+
 ## [v2.6.1](https://github.com/PoslinskiNet/ember-introjs/tree/v2.6.1) (2018-08-04)
 [Full Changelog](https://github.com/PoslinskiNet/ember-introjs/compare/v2.6.0...v2.6.1)
 
