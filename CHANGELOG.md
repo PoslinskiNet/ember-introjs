@@ -1,5 +1,12 @@
 # Change Log
 
+## [v2.6.3](https://github.com/PoslinskiNet/ember-introjs/tree/v2.6.3) (2018-12-30)
+[Full Changelog](https://github.com/PoslinskiNet/ember-introjs/compare/v2.6.2...v2.6.3)
+
+**Implemented enhancements:**
+
+- Smaller upgrades [\#146](https://github.com/PoslinskiNet/ember-introjs/pull/146) ([PoslinskiNet](https://github.com/PoslinskiNet))
+
 ## [v2.6.2](https://github.com/PoslinskiNet/ember-introjs/tree/v2.6.2) (2018-12-29)
 [Full Changelog](https://github.com/PoslinskiNet/ember-introjs/compare/v2.6.1...v2.6.2)
 
