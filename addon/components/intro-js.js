@@ -148,33 +148,39 @@ export default Component.extend({
     this.set('introJS', introJS);
   },
 
+  _sendAction(action, args) {
+    if (this.get(action)) {
+      this.get(action)(...args);
+    }
+  },
+
   _onBeforeChange(elementOfNewStep) {
     let prevStep = this.get('currentStep');
     let currentStepIndex = this.get('introJS._currentStep');
     this._setCurrentStep(currentStepIndex);
     let nextStep = this._getStep(++currentStepIndex);
 
-    this.sendAction('on-before-change', prevStep, nextStep, this, elementOfNewStep);
+    this._sendAction('on-before-change', [prevStep, nextStep, this, elementOfNewStep]);
   },
 
   _onChange(targetElement) {
-    this.sendAction('on-change', this._getNextStep(), this, targetElement);
+    this._sendAction('on-change', [this._getNextStep(), this, targetElement]);
   },
 
   _onAfterChange(targetElement){
-    this.sendAction('on-after-change', this._getNextStep(), this, targetElement);
+    this._sendAction('on-after-change', [this._getNextStep(), this, targetElement]);
   },
 
   _onExit(){
-    this.sendAction('on-exit', this.get('currentStep'), this);
+    this._sendAction('on-exit', [this.get('currentStep'), this]);
   },
 
   _onSkip(){
-    this.sendAction('on-skip', this.get('currentStep'), this);
+    this._sendAction('on-skip', [this.get('currentStep'), this]);
   },
 
   _onComplete() {
-    this.sendAction('on-complete', this.get('currentStep'));
+    this._sendAction('on-complete', [this.get('currentStep')]);
   },
 
   _setCurrentStep(step){
