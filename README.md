@@ -183,6 +183,7 @@ IntroJSComponent.reopen({
 | `scroll-to-element` | Auto scroll to highlighted element if it's outside of viewport, `true` or `false` |
 | `overlay-opacity` | Adjust the overlay opacity, `Number` |
 | `disable-interaction` | Disable an interaction inside element or not, `true` or `false` |
+| `helper-element-padding` | Set how much padding to be used around helper element |
 
 See [setOption](https://github.com/usablica/intro.js/#introjssetoptionoption-value) to see an example.
 
