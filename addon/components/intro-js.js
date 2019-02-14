@@ -24,7 +24,8 @@ let INTRO_JS_OPTIONS = [
   'show-progress',
   'scroll-to-element',
   'overlay-opacity',
-  'disable-interaction'
+  'disable-interaction',
+  'helper-element-padding'
 ];
 
 export default Component.extend({
@@ -84,6 +85,7 @@ export default Component.extend({
     'scroll-to-element',
     'overlay-opacity',
     'disable-interaction',
+    'helper-element-padding',
     'steps',
 
     function(){
