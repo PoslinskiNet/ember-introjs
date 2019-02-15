@@ -1,5 +1,23 @@
 # Change Log
 
+## [v2.6.4](https://github.com/PoslinskiNet/ember-introjs/tree/v2.6.4) (2019-02-15)
+[Full Changelog](https://github.com/PoslinskiNet/ember-introjs/compare/v2.6.3...v2.6.4)
+
+**Implemented enhancements:**
+
+- Deprecation warnings about sendAction [\#151](https://github.com/PoslinskiNet/ember-introjs/issues/151)
+- Removed deprecated sendAction [\#153](https://github.com/PoslinskiNet/ember-introjs/pull/153) ([dknutsen](https://github.com/dknutsen))
+
+**Merged pull requests:**
+
+- Add helper-element-padding option [\#157](https://github.com/PoslinskiNet/ember-introjs/pull/157) ([lsg-braymon](https://github.com/lsg-braymon))
+- Update ember-cli-babel to the latest version 🚀 [\#156](https://github.com/PoslinskiNet/ember-introjs/pull/156) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update broccoli-funnel to the latest version 🚀 [\#154](https://github.com/PoslinskiNet/ember-introjs/pull/154) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-cli-fastboot to the latest version 🚀 [\#152](https://github.com/PoslinskiNet/ember-introjs/pull/152) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-template-lint to the latest version 🚀 [\#149](https://github.com/PoslinskiNet/ember-introjs/pull/149) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-source to the latest version 🚀 [\#148](https://github.com/PoslinskiNet/ember-introjs/pull/148) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-cli-dependency-checker to the latest version 🚀 [\#147](https://github.com/PoslinskiNet/ember-introjs/pull/147) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
 ## [v2.6.3](https://github.com/PoslinskiNet/ember-introjs/tree/v2.6.3) (2018-12-30)
 [Full Changelog](https://github.com/PoslinskiNet/ember-introjs/compare/v2.6.2...v2.6.3)
 
