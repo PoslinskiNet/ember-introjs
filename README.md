@@ -206,7 +206,8 @@ To use them, first import them in your `tests/test-helper.js` file:
 import './helpers/ember-introjs';
 ```
 
-## LICENSE
+License
+------------------------------------------------------------------------------
 
 See the LICENSE file included in this repository.
 
@@ -216,6 +217,10 @@ Keep in mind that if you like to use Intro.JS for commercial use, you should buy
 [intro-js]: https://github.com/usablica/intro.js/
 [hooks]: https://github.com/usablica/intro.js#introjsstart
 
+Contributing
+------------------------------------------------------------------------------
+
+See the [Contributing](CONTRIBUTING.md) guide for details.
 
 ## Code of Conduct
 Please note that this project is released with a Contributor Code of
