@@ -1,5 +1,18 @@
 # Change Log
 
+## [v2.6.5](https://github.com/PoslinskiNet/ember-introjs/tree/v2.6.5) (2019-04-21)
+[Full Changelog](https://github.com/PoslinskiNet/ember-introjs/compare/v2.6.4...v2.6.5)
+
+**Implemented enhancements:**
+
+- 3.7 upgrade [\#155](https://github.com/PoslinskiNet/ember-introjs/pull/155) ([PoslinskiNet](https://github.com/PoslinskiNet))
+
+**Merged pull requests:**
+
+- Update ember-cli to the latest version 🚀 [\#161](https://github.com/PoslinskiNet/ember-introjs/pull/161) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-cli-babel to the latest version 🚀 [\#160](https://github.com/PoslinskiNet/ember-introjs/pull/160) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update ember-source to the latest version 🚀 [\#159](https://github.com/PoslinskiNet/ember-introjs/pull/159) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
 ## [v2.6.4](https://github.com/PoslinskiNet/ember-introjs/tree/v2.6.4) (2019-02-15)
 [Full Changelog](https://github.com/PoslinskiNet/ember-introjs/compare/v2.6.3...v2.6.4)
 
