@@ -144,6 +144,7 @@ export default Component.extend({
     intro.oncomplete(bind(this, this._onComplete));
     intro.onexit(bind(this, this._onExit));
     intro.onskip(bind(this, this._onSkip));
+    intro.onbeforeexit(bind(this, this._onBeforeExit));
   },
 
   _setIntroJS(introJS){
@@ -183,6 +184,10 @@ export default Component.extend({
 
   _onComplete() {
     this._sendAction('on-complete', [this.get('currentStep')]);
+  },
+
+  _onBeforeExit() {
+    this._sendAction('on-before-exit', [this.get('currentStep'), this]);
   },
 
   _setCurrentStep(step){
