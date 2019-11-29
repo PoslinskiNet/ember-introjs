@@ -123,9 +123,15 @@ Called after `on-change` when the user moves a step (backwards or
 forward) in the introduction. Gives the current step, the introJS
 component isntance, and the element of the current step.
 
-### on-exit (step, introJSComponent)
+### on-before-exit (step, introJSComponent)
 
 Called when the user quits the intro via the "Skip" button, hitting
+`escape`, or clicking outside the overlay. Given the current step, and
+the introJS component.
+
+### on-exit (step, introJSComponent)
+
+Called after `on-before-exit` when the user quits the intro via the "Skip" button, hitting
 `escape`, or clicking outside the overlay. Given the current step, and
 the introJS component.
 
