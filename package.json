@@ -1,6 +1,6 @@
 {
   "name": "ember-introjs",
-  "version": "2.6.6",
+  "version": "2.7.0",
   "description": "An Ember Component for intro.js",
   "keywords": [
     "ember-addon",
