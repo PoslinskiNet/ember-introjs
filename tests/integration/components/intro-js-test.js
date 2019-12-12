@@ -73,7 +73,20 @@ module('Integration | Component | intro js', function(hooks) {
     });
   });
 
-  module('when existing', function() {
+  module('when exiting', function() {
+
+    test('fires the on-before-exit action', async function(assert) {
+      assert.expect(2);
+
+      this.set('onBeforeExit', (step) => {
+        assert.equal(step, this.steps[0])
+      });
+
+      await render(hbs`{{intro-js steps=steps start-if=true on-before-exit=(action onBeforeExit)}}`);
+
+      await introJSSkip();
+    });
+
     test('fires the on-exit action', async function(assert) {
       assert.expect(3);
 
@@ -84,7 +97,7 @@ module('Integration | Component | intro js', function(hooks) {
       await render(hbs`{{intro-js steps=steps start-if=true on-exit=(action myExit)}}`);
 
       await introJSSkip();
-    })
+    });
   });
 
   module('when skiping', function() {
