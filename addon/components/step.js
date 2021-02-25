@@ -8,6 +8,10 @@ export default Component.extend({
   // The tooltip text of step
   intro: null,
 
+  // The tooltip title of step
+  title: null,
+
+
   // Optionally define a CSS class for tooltip
   tooltipClass: null,
 
@@ -33,11 +37,12 @@ export default Component.extend({
   attributeBindings: [
     'data-step',
     'data-intro',
+    'data-title',
     'data-position',
     'data-tooltipClass',
     'data-highlightClass',
     'data-hint',
-    'data-hintPosition'
+    'data-hintPosition'    
   ],
 
   'data-step': readOnly('step'),
@@ -49,5 +54,6 @@ export default Component.extend({
   'data-highlightClass': readOnly('highlightClass'),
 
   'data-position': readOnly('position'),
-  'data-hintPosition': readOnly('hintPosition'),
+  'data-hintPosition': readOnly('hintPosition'),  
+  'data-title': readOnly('title')
 });
